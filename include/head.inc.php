@@ -9,7 +9,7 @@
     <meta name="author" content="Alexis Mosquera &amp; Vincent Girard" />
 
     <?php
-        echo"<meta name=\"description\" content=\"$description\"";
+        echo"<meta name=\"description\" content=\"$description\" />";
     ?>
 
 </head>
@@ -18,7 +18,8 @@
         <nav>
             <ul>
                 <li>Accueil</li>
-                <li> </li>
+                <li>Recherche</li>
+                <li>Credit</li>
             </ul>
         </nav>
     </header>
