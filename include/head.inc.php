@@ -7,13 +7,14 @@
     
     <meta charset="utf-8"/>
     <meta name="author" content="Alexis Mosquera &amp; Vincent Girard" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css"     />
 
     <?php
         echo"<meta name=\"description\" content=\"$description\" />";
     ?>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"></script> 
 
 </head>
 <body>

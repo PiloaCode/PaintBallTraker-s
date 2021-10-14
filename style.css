@@ -4,6 +4,7 @@
     color: green;
     list-style: none;
     text-decoration: none;
+    color:white
 }
 
 h1
@@ -13,6 +14,13 @@ h1
 
 header
 {
-    background-color: blue; 
+    background-color: #4394FA;  
+
+    color: #fff;   
     
+}
+footer
+{
+    background-color: black;
+    color:white;
 }

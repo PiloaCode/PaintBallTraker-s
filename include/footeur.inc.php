@@ -1,4 +1,4 @@
-<footer>
+<footer container-fluide>
     <p> 
         <strong>&copy;PaintBallTraker-s</strong>
         <strong>Auteur: Mosquera Alexis et Girard Vincent</strong>
