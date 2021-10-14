@@ -1,11 +1,32 @@
-body{
-    background-color: #333;
-}
-
 h1{
-    color: #fff;
+    color: #333;
     text-align: center;
     margin-bottom: 20px;
+}
+
+h2{
+    text-align: center; 
+}
+
+.navbar {
+    background: #4394FA;
+}
+
+.navbar a {
+    color: #fff;
+}
+
+.col-12, .col-6, .col-3 , .card{
+    background: #333;
+    color: #fff;
+}
+
+.col-12, .col-6, .col-3 {
+    background: #fff;
+}
+
+.container-fluid{
+    background-color: #4394FA;
 }
 
 #map {

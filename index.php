@@ -51,7 +51,6 @@ L.marker([51.5, -0.09]).addTo(map)
 </div>
 
 </section>
-
 <?php
-    include_once 'include/footeur.inc.php';
+    include_once 'include/footer.inc.php';
 ?>
