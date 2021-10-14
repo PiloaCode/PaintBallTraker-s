@@ -128,14 +128,14 @@
     <h2>Clubs aux alentours</h2>
     <div id="map">
         <script>
-            var map = L.map('map').setView([51.505, -0.09], 13);
+            var map = L.map('map').setView([48.4990487,2.3663295], 12.5);
 
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             }).addTo(map);
 
-            L.marker([51.5, -0.09]).addTo(map)
-                .bindPopup('Paintball SelectPark.<br> Adresse.')
+            L.marker([48.4990487,2.3663295]).addTo(map)
+                .bindPopup('Paintball SelectPark.<br>Rue de Boigny, 91590 Baulne, France.')
                 .openPopup();
         </script>
     </div>

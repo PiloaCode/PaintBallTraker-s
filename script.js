@@ -1,4 +1,4 @@
-function go() {
+/*function go() {
     var cartesLyr = new ol.layer.GeoportalWMTS({
                 layer: "GEOGRAPHICALGRIDSYSTEMS.MAPS",
             }) ;
