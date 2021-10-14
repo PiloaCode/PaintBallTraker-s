@@ -1,16 +1,40 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-</head>
-<body>
-<h1>Implémentation d'une carte</h1>
+<?php
+    $title = "PaintBallTraker-s";
+    $description = "Page d'accueil du site.";
+
+    include_once 'include/header.inc.php';
+
+?>
+
+<h1> PaintBallTraker's </h1>
+
+<section>
+
+<h2>Qu'est-ce que le paintball?</h2>
+<p class="intro"> 
+    La paintball est une activité sportive ou de loisir opposant deux équipes dont les joueurs
+    sont équipés de masques de protection et de lanceur (ou marqueurs). Les lanceurs propulsent
+    par air comprimé au CO2 des billes de peinture de calibre 0.68 constituées de capsules médicales
+    renfermant une gélatine colorée, biodégradable.
+</p>
+
+<p class="intro">
+    Ces deux équipes  soppose l'une contre l'autre sur différents terrains délimités par des filets 
+    de protection.
+</p>
+
+<p class="intro"> 
+    Le but est de réussir les différentes missions données par l'encadrant. La partie est gagnée lorque
+    l'objectif est atteint ou lorsque les joeurs d'une équipe sont totalement éliminés par l'équipe
+    adverses au moyen de leurs lanceurs.
+</p>
+
+<table>
+    <td></td>
+    <td> </td>
+</table>
+
+<h2>Implémentation d'une carte</h2>
 <div id="map">
     <script>
         var map = L.map('map').setView([51.505, -0.09], 13);
@@ -25,20 +49,9 @@ L.marker([51.5, -0.09]).addTo(map)
     </script>
 
 </div>
-<!--
-<script type="text/javascript">
-    window.onload= function() {
-        var map = L.map("viewerDiv").setView([48.845,2.424],10) ;
-        L.tileLayer(
-            'https://wxs.ign.fr/53p4y6s38oqms2vkep7c0p0v/geoportail/wmts?service=WMTS&request=GetTile&version=1.0.0&tilematrixset=PM&tilematrix={z}&tilecol={x}&tilerow={y}&layer=ORTHOIMAGERY.ORTHOPHOTOS&format=image/jpeg&style=normal',
-            {
-                minZoom : 0,
-                maxZoom : 18,
-                tileSize : 256,
-                attribution : "IGN-F/Géoportail"
-            }).addTo(map);
-    }
-</script>
--->
-</body>
-</html>
+
+</section>
+
+<?php
+    include_once 'include/footeur.inc.php';
+?>
