@@ -19,6 +19,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="style.css" />
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!--Library Leaflet-->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <!--Extension Géoportail pour Leaflet-->
+    <link rel="stylesheet" href="/GpPluginLeaflet-2.1.9/GpPluginLeaflet-map.css"/>
+    <script src="/GpPluginLeaflet-2.1.9/GpPluginLeaflet-map.js"></script>
+
 </head>

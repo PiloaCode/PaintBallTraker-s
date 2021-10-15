@@ -126,6 +126,7 @@
         </p>
     </div>
     <h2>Clubs aux alentours</h2>
+    <!--
     <div id="map">
         <script>
             var map = L.map('map').setView([48.4990487,2.3663295], 12.5);
@@ -163,7 +164,12 @@
             closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
         }
         }
-    </script>
+    </script>-->
+    <h2>Calcul itinéraire<h2>
+    <div id="map"></div>
+    <div id="info"></div>
+
+      
 </body>
 <?php
     include_once 'include/footer.inc.php';
