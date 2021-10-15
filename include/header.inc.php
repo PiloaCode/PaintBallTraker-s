@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <!--Extension Géoportail pour Leaflet-->
-    <link rel="stylesheet" href="/GpPluginLeaflet-2.1.9/GpPluginLeaflet-map.css"/>
-    <script src="/GpPluginLeaflet-2.1.9/GpPluginLeaflet-map.js"></script>
+    <link rel="stylesheet" href="GpPluginLeaflet-2.1.9/GpPluginLeaflet-map.css"/>
+    <script src="GpPluginLeaflet-2.1.9/GpPluginLeaflet-map.js" data-key="53p4y6s38oqms2vkep7c0p0v"></script>
 
 </head>
