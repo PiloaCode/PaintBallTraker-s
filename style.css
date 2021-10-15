@@ -1,5 +1,9 @@
 
 
+body{
+  background-color: #293133;
+}
+
 h1{
     color: #fff;
     text-align: center;
@@ -9,10 +13,12 @@ h1{
 h2{
     text-align: center; 
     margin: 5% 5%;
+    color: #fff;
 }
 
 p{
   margin: 5% 5%;
+  color: #fff;
 }
 
 .col-12, .col-6, .col-3 , .card{
@@ -71,7 +77,7 @@ p{
 
 /* The hero image */
 .hero-image {
-  
+
     background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("img/img1.jpg");
 
     /* Set a specific height */
@@ -319,7 +325,8 @@ p{
 }
 .home-section{
   position: relative;
-  background: #E4E9F7;
+  /*background: #E4E9F7;*/
+  background: 293133;
   min-height: 100vh;
   top: 0;
   left: 78px;
@@ -342,4 +349,9 @@ p{
   .sidebar li .tooltip{
     display: none;
   }
+}
+
+/*Titre page contact*/
+h1,.contact {
+  color: #fff;
 }
