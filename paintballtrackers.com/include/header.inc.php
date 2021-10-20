@@ -23,106 +23,105 @@
     <!--Extension Géoportail pour Leaflet-->
     <link rel="stylesheet" href="GpPluginLeaflet-2.1.9/GpPluginLeaflet-map.css"/>
     <script src="GpPluginLeaflet-2.1.9/GpPluginLeaflet-map.js" data-key="53p4y6s38oqms2vkep7c0p0v"></script>
-
-    <div class="sidebar">
-      <div class="logo-details">
-        <i class='bx bxl-c-plus-plus icon'></i>
-        <div class="logo_name">Paintball Traker's</div>
-        <i class='bx bx-menu' id="btn" ></i>
-      </div>
-      <ul class="nav-list">
-        <li>
-            <i class='bx bx-search' ></i>
-          <input type="text" placeholder="Recherche...">
-          <span class="tooltip">Rercherche</span>
+</head>  
+<body>    
+      <div class="sidebar">
+        <div class="logo-details">
+          <i class='bx bxl-c-plus-plus icon'></i>
+          <div class="logo_name">Paintball Traker's</div>
+          <i class='bx bx-menu' id="btn" ></i>
+        </div>
+        <ul class="nav-list">
+          <li>
+              <i class='bx bx-search' ></i>
+            <input type="text" placeholder="Recherche...">
+            <span class="tooltip">Rercherche</span>
+          </li>
+          <li>
+            <a href="index.php">
+              <i class='bx bx-home bx-flip-horizontal' ></i>
+              <span class="links_name">Accueil</span>
+            </a>
+            <span class="tooltip">Accueil</span>
+          </li>
+          <li>
+            <a href="tableau_de_bord.php">
+              <i class='bx bx-grid-alt'></i>
+              <span class="links_name">Tableau de bord</span>
+            </a>
+            <span class="tooltip">Tableau de bord</span>
+          </li>
+          <li>   
+          <a href="analyses.php">
+            <i class='bx bx-pie-chart-alt-2' ></i>
+            <span class="links_name">Analyses</span>
+          </a>
+          <span class="tooltip">Analyses</span>
+        </li>
+          <li>
+          <a href="contact.php">
+          <i class='bx bx-phone'></i>
+            <span class="links_name">Contact</span>
+          </a>
+          <span class="tooltip">Contact</span>
         </li>
         <li>
-          <a href="index.php">
-            <i class='bx bx-home bx-flip-horizontal' ></i>
-            <span class="links_name">Accueil</span>
+          <a href="utilisateurs.php">
+            <i class='bx bx-user' ></i>
+            <span class="links_name">Connexion</span>
           </a>
-          <span class="tooltip">Accueil</span>
-        </li>
-        <li>
-          <a href="tableau_de_bord.php">
-            <i class='bx bx-grid-alt'></i>
-            <span class="links_name">Tableau de bord</span>
-          </a>
-          <span class="tooltip">Tableau de bord</span>
+          <span class="tooltip">Connexion</span>
         </li>
         <li>   
-        <a href="analyses.php">
-          <i class='bx bx-pie-chart-alt-2' ></i>
-          <span class="links_name">Analyses</span>
-        </a>
-        <span class="tooltip">Analyses</span>
-      </li>
-        <li>
-        <a href="contact.php">
-        <i class='bx bx-phone'></i>
-          <span class="links_name">Contact</span>
-        </a>
-        <span class="tooltip">Contact</span>
-      </li>
-      <li>
-        <a href="utilisateurs.php">
-          <i class='bx bx-user' ></i>
-          <span class="links_name">Connexion</span>
-        </a>
-        <span class="tooltip">Connexion</span>
-      </li>
-      <li>   
-        <a href="parametres.php">
-          <i class='bx bx-cog' ></i>
-          <span class="links_name">Paramètres</span>
-        </a>
-        <span class="tooltip">Paramètres</span>
-      </li>
-      <li class="profile">
-          <div class="profile-details">
-            <img src="img/profile1.png" alt="profileImg">
-            <div class="name_job">
-              <div class="name">Nom</div>
-              <div class="job">Prénom</div>
+          <a href="parametres.php">
+            <i class='bx bx-cog' ></i>
+            <span class="links_name">Paramètres</span>
+          </a>
+          <span class="tooltip">Paramètres</span>
+        </li>
+        <li class="profile">
+            <div class="profile-details">
+              <img src="img/profile1.png" alt="profileImg">
+              <div class="name_job">
+                <div class="name">Nom</div>
+                <div class="job">Prénom</div>
+              </div>
             </div>
-          </div>
-          <i class='bx bx-log-out' id="log_out" ></i>
-      </li>
-      </ul>
-  </div>
-  <!--Animation de la sidebar-->
-  <script>
-    let sidebar = document.querySelector(".sidebar");
-    let closeBtn = document.querySelector("#btn");
-    let searchBtn = document.querySelector(".bx-search");
+            <i class='bx bx-log-out' id="log_out" ></i>
+        </li>
+        </ul>
+    </div>
+    <div class="home-section">    
+      <!--Animation de la sidebar-->
+      <script>
+        let sidebar = document.querySelector(".sidebar");
+        let closeBtn = document.querySelector("#btn");
+        let searchBtn = document.querySelector(".bx-search");
 
-    closeBtn.addEventListener("click", ()=>{
-        sidebar.classList.toggle("open");
-        menuBtnChange();//calling the function(optional)
-    });
+        closeBtn.addEventListener("click", ()=>{
+            sidebar.classList.toggle("open");
+            menuBtnChange();//calling the function(optional)
+        });
 
-    searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
-        sidebar.classList.toggle("open");
-        menuBtnChange(); //calling the function(optional)
-    });
+        searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+            sidebar.classList.toggle("open");
+            menuBtnChange(); //calling the function(optional)
+        });
 
-    // following are the code to change sidebar button(optional)
-    function menuBtnChange() {
-      if(sidebar.classList.contains("open")){
-          closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
-      }
-      else {
-          closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
-      }
-    }
-  </script>
-        <div class="hero-image">
+        // following are the code to change sidebar button(optional)
+        function menuBtnChange() {
+          if(sidebar.classList.contains("open")){
+              closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+          }
+          else {
+              closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+          }
+        }
+      </script>
+      <div class="hero-image">
         <div class="hero-text">
             <?php
                 echo"\t<h1>$h1</h1>\n"; 
             ?>
         </div>
-    </div> 
-
-
-</head>
+      </div>  

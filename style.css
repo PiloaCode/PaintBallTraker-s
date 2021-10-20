@@ -1,11 +1,9 @@
-
-
 body{
   background-color: #293133;
 }
 
 h1{
-    color: #fff;
+    color: #333;
     text-align: center;
     font-size: 50px;
 }
@@ -81,7 +79,8 @@ p{
     background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("img/img1.jpg");
 
     /* Set a specific height */
-    height: 61em;
+    height: 100vh;
+    /*height: 61em;*/
   
     /* Position and center the image to scale nicely on all screens */
     background-position: center;
@@ -113,7 +112,7 @@ p{
   top: 0;
   height: 100%;
   width: 78px;
-  background: #11101D;
+  background: #E9EDDE;
   padding: 6px 14px;
   z-index: 99;
   transition: all 0.5s ease;
@@ -158,7 +157,7 @@ p{
   text-align: right;
 }
 .sidebar i{
-  color: #fff;
+  color: #293133;
   height: 60px;
   min-width: 50px;
   font-size: 28px;
@@ -211,7 +210,7 @@ p{
   border: none;
   border-radius: 12px;
   transition: all 0.5s ease;
-  background: #1d1b31;
+  background: #E9EDDE;
 }
 .sidebar.open input{
   padding: 0 20px 0 50px;
@@ -223,7 +222,7 @@ p{
   left: 0;
   transform: translateY(-50%);
   font-size: 22px;
-  background: #1d1b31;
+  background: #E9EDDE;
   color: #FFF;
 }
 .sidebar.open .bx-search:hover{
@@ -312,7 +311,7 @@ p{
   top: 50%;
   right: 0;
   transform: translateY(-50%);
-  background: #1d1b31;
+  background: #E9EDDE;
   width: 100%;
   height: 60px;
   line-height: 60px;

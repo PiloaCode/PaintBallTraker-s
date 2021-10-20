@@ -1,4 +1,5 @@
 </body>
+</html>
 <footer>
     <p> 
         <strong>&copy;PaintBallTraker-s</strong>
