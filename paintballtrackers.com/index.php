@@ -1,5 +1,5 @@
 <?php
-    $title = "PaintBallTraker-s";
+    $title = "PaintBallTrakers";
     $description = "Page d'accueil du site.";
     $h1 = "Paintball Trackers";
     include_once 'include/header.inc.php';
