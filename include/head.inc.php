@@ -31,7 +31,6 @@
                 <li><a href="" >Credit </a></li>
             </ul>
         </nav>
-    </header>
     
 
 
