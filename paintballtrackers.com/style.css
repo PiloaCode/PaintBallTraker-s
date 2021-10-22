@@ -449,6 +449,15 @@ footer
 =======
 */
 /*Carte Info - Page Contact*/
+@media (min-width: 1000px ) {
+  .cardAlexis {
+    margin-right: 3%!important;
+  }
+
+  .cardVincent {
+    margin-left: 3%!important;  
+  }
+}
 
 .pCard_card {
   width: 350px;
