@@ -18,7 +18,7 @@
 <div class="col-12 col-lg-4">
 <div class="card maCard" id="card1">
   <div class="imgCard">
-  <img class="card-img-top" src="include/icon-force.png" alt="Card image cap">
+  <img class="card-img-top" src="img/icon-force.png" alt="Card image cap">
   </div>
   <div class="card-body">
   <h5>Augmente la force et l'endurance</h5>
@@ -32,7 +32,7 @@
 <div class="col-12 col-lg-4">
 <div class="card maCard" id="card2">
 <div id="imgCard2" class="imgCard">
-  <img class="card-img-top" src="include/icon-confiance.png" alt="Card image cap">
+  <img class="card-img-top" src="img/icon-confiance.png" alt="Card image cap">
 </div>
   <h5>Gain de confiance en soi</h5>
   <div class="card-body">
@@ -48,7 +48,7 @@
 <div class="col-12 col-lg-4">
 <div class="card maCard" id="card3" >
   <div class="imgCard" id="imgCardCible">
-  <img class="card-img-top" src="include/icon-poids.png" alt="Card image cap">
+  <img class="card-img-top" src="img/icon-poids.png" alt="Card image cap">
 </div>
   <h5> Permet la perte de poids </h5>
   <div class="card-body">

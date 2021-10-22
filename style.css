@@ -113,7 +113,8 @@ p{
   top: 0;
   height: 100%;
   width: 78px;
-  background: #11101D;
+  /*background: #11101D;*/
+  background: #4394FA;
   padding: 6px 14px;
   z-index: 99;
   transition: all 0.5s ease;
@@ -223,8 +224,8 @@ p{
   left: 0;
   transform: translateY(-50%);
   font-size: 22px;
-  background: #1d1b31;
-  color: #FFF;
+  background: #fff;
+  color: #1d1b31;
 }
 .sidebar.open .bx-search:hover{
   background: #1d1b31;
@@ -242,10 +243,10 @@ p{
   align-items: center;
   text-decoration: none;
   transition: all 0.4s ease;
-  background: #11101D;
+  background: #fff;
 }
 .sidebar li a:hover{
-  background: #FFF;
+  background: #1d1b31;
 }
 .sidebar li a .links_name{
   color: #fff;
@@ -356,14 +357,8 @@ h1,.contact {
   color: #fff;
 }
 
-header
-{
-    background-color: #4394FA;     
-}
-
 footer
 {
-    background-color: black;
     color:white;
 }
 
@@ -395,26 +390,6 @@ footer
     height: 30rem;
 }
 
-.menu
-{
-    display: inline;
-}
-
-.menu
-{
-    display: block;
-}
-.menu ul
-{
-    display: inline;
-    list-style: none;
-}
-.menu a
-{
-    text-decoration: none;
-    color: white;
-}
-
 .imgCard{
     height: 50%;
     width: 50%;
@@ -425,24 +400,24 @@ footer
 
 @media (min-width: 1200px)
 {
-    #card1
-{
-    margin-right: 1%;
-}
+      #card1
+  {
+      margin-right: 1%;
+  }
 
 
-#card3
-{
-    margin-left: 1%;
-} 
+  #card3
+  {
+      margin-left: 1%;
+  } 
 
 
 
-#imgCardCible
-{
-    height: 50%;
-    width: 40%;
-    margin-top: 2em;
-    margin-bottom: 0em;
-}
+  #imgCardCible
+  {
+      height: 50%;
+      width: 40%;
+      margin-top: 2em;
+      margin-bottom: 0em;
+  }
 }
