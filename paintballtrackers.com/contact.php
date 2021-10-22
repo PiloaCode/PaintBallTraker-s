@@ -7,9 +7,10 @@
 <body>
 <h2>Qui sommes nous ?</h2>
 <div class="row">
-    <div class="col-12 col-sm-12 col-md-6" style="background: #293133;">
+    <div class="col-12 col-md-6" style="background: #293133;">
     <!--Card Alexis-->
-    <div class="pCard_card" style="margin-right: 10%;">
+    <div class="pCard_card cardAlexis">
+       <!--Partie haute de la carte--> 
         <div class="pCard_up">
             <div class="pCard_text">
                 <h2>Alexis Mosquera</h2>
@@ -19,6 +20,7 @@
                 <i class="fas fa-plus"></i>
             </div>
         </div>
+        <!--Partie basse de la carte--> 
         <div class="pCard_down">
             <div>
                 <p>Projets</p>
@@ -33,6 +35,7 @@
                 <p>Bac+3</p>
             </div>
         </div>
+        <!--Verso de la carte-->
         <div class="pCard_back">
             <p>Maîtrise des langages suivants :</p>
             <span style="font-size: 3em;">
@@ -56,14 +59,15 @@
                 <i class="fab fa-php"></i>
                 </span>
             </span>  
-            <img src="img/logo-mysql.png" style="vertical-align: top; width:8vh;">
+            <img src="img/logo-mysql.png" style="vertical-align: top; width:20%;">
             </div>
         </div>
     </div>
     </div>
     <div class="col-12 col-sm-12 col-md-6" style="background: #293133;">
     <!--Card Vincent-->
-    <div class="pCard_card" style="margin-left: 10%;">
+    <div class="pCard_card cardVincent">
+       <!--Partie haute de la carte-->     
         <div class="pCard_up">
             <div class="pCard_text">
                 <h2>Vincent Girard</h2>
@@ -73,6 +77,7 @@
                 <i class="fas fa-plus"></i>
             </div>
         </div>
+        <!--Partie basse de la carte-->         
         <div class="pCard_down">
             <div>
                 <p>Projets</p>
@@ -87,6 +92,7 @@
                 <p></p>
             </div>
         </div>
+        <!--Verso de la carte-->
         <div class="pCard_back">
             <p>Maîtrise des langages suivants :</p>
             <span style="font-size: 3em;">

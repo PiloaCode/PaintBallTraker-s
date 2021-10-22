@@ -266,7 +266,7 @@ background: #fff;
   background: #E9EDDE;
 }
 .sidebar li a:hover{
-  background: #1d1b31;
+  background: #fff;
 }
 
 .active {
@@ -456,7 +456,7 @@ footer
   margin: 50px auto;
   border-radius: 30px;
   background-color: #f6fcfe;
-  box-shadow: 0px 20px 70 px 0px rgba(0,0,0,0.21);
+  box-shadow: 0px 20px 70px 0px rgba(0,0,0,0.21);
   position: relative;
   overflow: hidden;
 }
