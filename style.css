@@ -15,26 +15,54 @@ footer
     color:white;
 }
 
+/* css qui modifie les titres de niveaux 1 de toutes les pages */
 h1
 {
     color: #E9EDDE;
     text-align: center;
 }
 
+/* css qui modifie les titres de niveaux 2 de toutes les pages */
 h2
 {
     text-align: center;
     color:  #FDE74C;
 }
 
+/* css qui modifie les paragraphe introductife de la page Index */
 .intro
 {
-    padding: 3%;
+    padding: 1%;
     text-indent:2%; 
     font-size: 130%;
+    text-align: left;
 }
 
-.imgCard{
+/* css pour la lignes des cardes de l'index */
+#cardes
+{
+    margin-bottom: 5%;
+}
+
+/* css pour les cardes de la page index */
+.maCard
+{
+    margin-bottom: 5%;
+    background-color:  #5BC0EB; 
+    
+    box-shadow: 0 0 10px white;
+    color: black;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;  
+    height: 500px;
+   
+}
+
+/* css pour les images des cardes de l'index */
+.imgCard
+{
     height: 35%;
     width: 35%;
     margin-left: auto;
@@ -45,44 +73,42 @@ h2
     overflow: hidden;
 }
 
-.maCard
-{
-    margin-bottom: 5%;
-    background-color:  #5BC0EB; /* #FAED27*/
-    
-    box-shadow: 2px 2px 12px white;
-    color: black;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;  
-    height: 500px;
-   
-}
-
+/* css pour les titres des cardes de la page index */
 .maCard h5
  {
     position: relative;
     top: 0%;
  }
 
+ /* css pour les paragraphe des cardes de la page index */
  .maCard p
  {
     margin-top: 10%;
  }
 
+ /* css qui difère pour les grand écran*/
  @media (min-width: 1200px)
 {
+    /* css qui modifie les paragraphe introductife de la page Index */
+    .intro
+    {  
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    /* css qui permet de modifier la carde de gauche pour la page index */
     #card1
     {
         margin-right: 1%;
     }
 
+     /* css qui permet de modifier la carde de droite pour la page index */
     #card3
     {
         margin-left: 1%;
     } 
 
+    /* css pour les cardes de la page index */
     .maCard
     {
         width: 45%; 
@@ -90,51 +116,26 @@ h2
     
     }
 
+     /* css pour les titres des cardes de la page index */
+     .maCard h5
+     {
+         position: relative;
+         top: 0%;
+     }
     
-
+    /* css pour les paragraphe des cardes de la page index */
     .maCard p
     {
         position: relative;
-        bottom:     5%;
-    }
-
-    .maCard h5
-    {
-        position: relative;
-        top: 0%;
-    }
-
-    .intro
-    {
-        text-align: center;    
-        margin-left: 10%;
-        margin-right: 15%;
+        bottom: 5%;
     }
 
 }
 
-/*
-
-
-
-@media (min-width: 1200px)
+.test
 {
-
-
-    .imgCard
-    {
-        height: 50%;
-        width: 50%;
-        margin-left: auto;
-        margin-right: auto;
-        position: relative;
-        top: 5%;
-    }
-
+    border-radius: 15%;
 }
-*/
-
-
 
 /* #EFD807*/ /*#FAED27*/
 /* 20rem;  height: 530px;*/
