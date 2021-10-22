@@ -1,6 +1,6 @@
 <?php
-    $title = "PaintBallTraker-s";
+    $title = "PaintBallTrakers";
     $description = "Page d'accueil du site.";
-    $h1 = "Utilisateurs";
+    $h1 = "Tableau de bord";
     include_once 'include/header.inc.php';
 ?>

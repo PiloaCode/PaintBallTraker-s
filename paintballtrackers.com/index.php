@@ -1,19 +1,17 @@
 <?php
-    $title = "PaintBallTraker-s";
+    $title = "PaintBallTrakers";
     $description = "Page d'accueil du site.";
-    $h1 = "Paintball Tracker's";
+    $h1 = "Paintball Trackers";
     include_once 'include/header.inc.php';
 
 ?>
-<body>
-      <!--Elements de ma page d'accueil-->
-      <section class="home-section">    
 
-        <h2>Qu'est-ce que le paintball?</h2>
+<!--Elements de ma page d'accueil--> 
+  <h2>Qu'est-ce que le paintball?</h2>
 
-        <!-------------CODE VINCENT------------->
+        <!-------------CODE VINCENT------------
 
-        <div class='row'>
+  <div class='row'>
 
 <div class="col-12 col-lg-4">
 <div class="card maCard" id="card1">
@@ -63,7 +61,7 @@
 </div>
 </div>
 </div>
-
+-->
 
         <!-------------------------------------->
         <div>
@@ -122,7 +120,7 @@
           </script>
           <div id="map"></div>
           <div id="info"></div>      
-</body>
+        
 <?php
     include_once 'include/footer.inc.php';
 ?>
