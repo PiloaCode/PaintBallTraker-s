@@ -7,7 +7,6 @@
 ?>
 
 <!--Elements de ma page d'accueil--> 
-<!-----------------CODE VINCENT-------------------->
 <!-- texte d'explication du jeux de Paintball et de présentation du site -->
 <div class="row">
   <section>
@@ -22,14 +21,196 @@
         missions données par l'encadrant. La partie est gagnée lorque l'objectif est atteint ou lorsque 
         les joeurs d'une équipe sont totalement éliminés par l'équipe adverses au moyen de leurs lanceurs.
     </p>
-    <h3> Quels sont les principaux mode de jeux du paintball?</h3>
-      Les principaux modes de jeux au Paintball sont:
+    <h2> Paintball Loisir</h2>
+    <div class="row">
+      <!--Card BATTLEROYALE-->
+      <div class="pCard_card">
+        <!--Partie haute de la carte--> 
+        <div id="pCard_up_BattleRoyale">
+          <div class="pCard_text">
+            
+          </div>
+          <div class="pCard_add">
+            <i class="fas fa-plus"></i>
+          </div>
+        </div>
+        <!--Partie basse de la carte--> 
+        <div class="pCard_down">
+          <div class="card_sousTitre_Accueil">
+            <p>Battle Royale</p>
+            <p>Pas de limite de joueurs</p>
+          </div>
+        </div>
+        <!--Verso de la carte-->
+        <div class="pCard_back">
+          <p>Maîtrise des langages suivants :</p>
+          <span style="font-size: 3em;">
+            <span style="color: #e9573f;">
+              <i class="fab fa-html5"></i>
+            </span>
+          </span>    
+          <span style="font-size: 3em;">
+            <span style="color: #264de4;">
+              <i class="fab fa-css3-alt"></i>
+            </span>
+          </span>
+          <span style="font-size: 3em;">
+            <span style="color: #f7df1d;">
+              <i class="fab fa-js-square"></i>
+            </span>
+          </span>
+          <span style="font-size: 3em;">
+              <span style="color: #777bb3;">
+              <i class="fab fa-php"></i>
+              </span>
+          </span>  
+          <img src="img/logo-mysql.png" style="vertical-align: top; width:20%;">
+        </div>
+      </div>
+      <!--CARD DEATHMATCH-->
+      <div class="pCard_card">
+        <!--Partie haute de la carte--> 
+        <div id="pCard_up_Deathmatch">
+          <div class="pCard_text">
+
+          </div>
+          <div class="pCard_add">
+            <i class="fas fa-plus"></i>
+          </div>
+        </div>
+        <!--Partie basse de la carte--> 
+        <div class="pCard_down">
+          <div class="card_sousTitre_Accueil">
+            <p>Deathmatch</p>
+            <p>Pas de limite de joeurs</p>
+          </div>
+        </div>
+        <!--Verso de la carte-->
+        <div class="pCard_back">
+          <p>Maîtrise des langages suivants :</p>
+          <span style="font-size: 3em;">
+            <span style="color: #e9573f;">
+              <i class="fab fa-html5"></i>
+            </span>
+          </span>    
+          <span style="font-size: 3em;">
+            <span style="color: #264de4;">
+              <i class="fab fa-css3-alt"></i>
+            </span>
+          </span>
+          <span style="font-size: 3em;">
+            <span style="color: #f7df1d;">
+              <i class="fab fa-js-square"></i>
+            </span>
+          </span>
+          <span style="font-size: 3em;">
+            <span style="color: #777bb3;">
+              <i class="fab fa-php"></i>
+            </span>
+          </span>  
+          <img src="img/logo-mysql.png" style="vertical-align: top; width:20%;">
+          </div>
+        </div>
+      <!--</div>-->
+      <!--CARD LE FORT-->
+      <div class="pCard_card">
+        <!--Partie haute de la carte--> 
+        <div id="pCard_up_LeFort">
+          <div class="pCard_text">
+
+          </div>
+          <div class="pCard_add">
+            <i class="fas fa-plus"></i>
+          </div>
+        </div>
+        <!--Partie basse de la carte--> 
+        <div class="pCard_down">
+          <div class="card_sousTitre_Accueil">
+            <p>Le Fort</p>
+            <p>Pas de limite de joueurs</p>
+          </div>
+        </div>
+        <!--Verso de la carte-->
+        <div class="pCard_back">
+          <p>Maîtrise des langages suivants :</p>
+          <span style="font-size: 3em;">
+            <span style="color: #e9573f;">
+              <i class="fab fa-html5"></i>
+            </span>
+          </span>    
+          <span style="font-size: 3em;">
+            <span style="color: #264de4;">
+              <i class="fab fa-css3-alt"></i>
+            </span>
+          </span>
+          <span style="font-size: 3em;">
+            <span style="color: #f7df1d;">
+              <i class="fab fa-js-square"></i>
+            </span>
+          </span>
+          <span style="font-size: 3em;">
+            <span style="color: #777bb3;">
+              <i class="fab fa-php"></i>
+            </span>
+          </span>  
+          <img src="img/logo-mysql.png" style="vertical-align: top; width:20%;">
+          </div>
+        </div>
+     <!-- </div> -->
+            <!--CARD LES BOMBES-->
+            <div class="pCard_card">
+        <!--Partie haute de la carte--> 
+        <div id="pCard_up_LesBombes">
+          <div class="pCard_text">
+
+          </div>
+          <div class="pCard_add">
+            <i class="fas fa-plus"></i>
+          </div>
+        </div>
+        <!--Partie basse de la carte--> 
+        <div class="pCard_down">
+          <div class="card_sousTitre_Accueil">
+            <p>Les Bombes</p>
+            <p>Pas de limite de joueurs</p>
+          </div>
+        </div>
+        <!--Verso de la carte-->
+        <div class="pCard_back">
+          <p>Maîtrise des langages suivants :</p>
+          <span style="font-size: 3em;">
+            <span style="color: #e9573f;">
+              <i class="fab fa-html5"></i>
+            </span>
+          </span>    
+          <span style="font-size: 3em;">
+            <span style="color: #264de4;">
+              <i class="fab fa-css3-alt"></i>
+            </span>
+          </span>
+          <span style="font-size: 3em;">
+            <span style="color: #f7df1d;">
+              <i class="fab fa-js-square"></i>
+            </span>
+          </span>
+          <span style="font-size: 3em;">
+            <span style="color: #777bb3;">
+              <i class="fab fa-php"></i>
+            </span>
+          </span>  
+          <img src="img/logo-mysql.png" style="vertical-align: top; width:20%;">
+          </div>
+        </div>
+      </div>
+    </row>
+      <p>Les principaux modes de jeux au Paintball sont:</p>
       <ul>
         <li> Battle royale </li>
         <li> Le Deathmatch par équipe </li>
         <li> Le Fort </li>
         <li> Les Bombes </li>
       </ul>
+    <h2>Paintball Compétition</h2>  
     <h2>Que peut vous apporter notre site?</h2>
     <!-- textes explicatifs du site -->
     <p class="intro"> 
@@ -59,7 +240,7 @@
   <div class="col-12 col-lg-4 test" id="titi">
     <div class="card maCard" id="card1">
       <figure class="imgCard">
-        <img class="card-img-top" src="images/icon-force.png" alt="Card image cap">
+        <img class="card-img-top" src="img/icon-force.png" alt="Card image cap">
       </figure>
       <div class="card-body">
         <h5 class="titleCard">Augmente la force et l'endurance</h5>
@@ -73,7 +254,7 @@
   <div class="col-12 col-lg-4">
     <div class="card maCard" >
       <figure class="imgCard ">
-        <img class="card-img-top" src="images/icon-confiance.png" alt="Card image cap">
+        <img class="card-img-top" src="img/icon-confiance.png" alt="Card image cap">
       </figure>
       <div class="card-body">
         <h5 class="titleCard">Gain de confiance en soi</h5>
@@ -87,7 +268,7 @@
   <div class="col-12 col-lg-4">
     <div class="card maCard" id="card3" >
       <figure class="imgCard">
-        <img class="card-img-top" src="images/icon-poids.png" alt="Card image cap">
+        <img class="card-img-top" src="img/icon-poids.png" alt="Card image cap">
       </figure>
       <div class="card-body">
         <h5 class="titleCard"> Permet la perte de poids </h5>
