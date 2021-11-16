@@ -29,10 +29,10 @@
   <h3> Quels sont les principaux mode de jeux du paintball?</h3>
 
     Les principaux modes de jeux au Paintball sont:
-    <ul>
+    <ul class="intro">
       <li> Battle royale </li>
       <li> Le Deathmatch par équipe </li>
-      <li> Le Fort </li>
+      <li> Les Drapeaux </li>
       <li> Les Bombes </li>
     </ul>
 
@@ -53,28 +53,30 @@
     Notre site internet, possède plusieurs fonctionnalité, la première est la possibilitée pour vous de
     recherche un lieux ou vous pouvez pratiquer le paintball. Vous pouvez par exemple cherchez le lieux le plus
     proche, pour cela il vous suffit de vous rendre sur la page Recherche. Pour se qui est est des
-    fonctionnalités se suivie de votre progression, il vous faut créer un compte. Pour cela rendez-vous sur la
+    fonctionnalités de suivie de votre progression, il vous faut créer un compte. Pour cela rendez-vous sur la
     page connexion et appyez sur s'inscrire. Il vous suffira alors de rentrer les informations demandé. Une
     fois connecter de nouvelles pages (s'offrirons à vous) vous serons accessible. Premièrement, il vous sera possible d'inscrire
-    les ou l'équipe avec l'esquelle vous jouer, se qui vous sera utile au moment de rentrer de nouvelle information sur
+    les ou l'équipe avec lasqu'elle  vous jouer, qui par las suite vous sera utile au moment de rentrer de nouvelle information sur
     un nouveau matches. La dexième interaction possible est la possibilité de rentrer les informations de vos
-    parties de paintBall. 
+    parties de paintBall. Puis efin vous pourez voir votre évolution au fils du temps, ces statististique seront
+    créer à partir des informations rentrer par vos soin au préalable. Ces statistiques pourra ainsi vous informer et vous
+    permettre de voir les points a améliorer pour vos prochain matches.
   </p>
 
 </section>
 </div>
 
 <!-- Affichage des cartes des bienfais du Paintball -->
-<div class='row' id='cardes'>
+<div class='row test' id='cardes'>
 
-  <div class="col-12 col-lg-4 test" id="titi">
+  <div class="col-12 col-lg-4" id="titi">
     <div class="card maCard" id="card1">
       <figure class="imgCard">
         <img class="card-img-top" src="images/icon-force.png" alt="Card image cap">
       </figure>
     <div class="card-body">
       <h5 class="titleCard">Augmente la force et l'endurance</h5>
-      <p class="card-text"> Ramper, courir,plonger,esquiiver... Le paintball est un véritable concentré de plusieurs sports.
+      <p class="card-text texteCard"> Ramper, courir,plonger,esquiiver... Le paintball est un véritable concentré de plusieurs sports.
         D'une manière générale, au sortir d'une partie, les joueurs sont réellement exténué.
         En outre, cette activité tonifie le corps sans même que l'on s'en rende compte.
       </p>
@@ -83,7 +85,7 @@
   </div>
 
   <div class="col-12 col-lg-4">
-    <div class="card maCard" >
+    <div class="card maCard">
       <figure class="imgCard ">
         <img class="card-img-top" src="images/icon-confiance.png" alt="Card image cap">
       </figure>
