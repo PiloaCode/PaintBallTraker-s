@@ -54,6 +54,43 @@ use PHPMailer\PHPMailer\PHPMailer;
     return $mail;
     }
 
+    function tableUser()
+    {
+        $conn = openBD();
+        $conn->query("SELECT * FROM Utilisateur");
+    }
+
+    function tableJoueur()
+    {
+        $conn = openBD();
+        $conn->query("");
+    }
+
+    function tableEquipe()
+    {
+        $conn = openBD();
+    }
+
+    function tableMatchs()
+    {
+        $conn = openBD();
+    }
+
+    function tableDeathmatch()
+    {
+        $conn = openBD();
+    }
+
+    function tableProtectVip()
+    {
+        $conn = openBD();
+    }
+
+    function tableCaptureDrapeau()
+    {
+        $conn = openBD();
+    }
+
     function adreseeConfirme()
     {
         $conn = openBD();
@@ -61,10 +98,8 @@ use PHPMailer\PHPMailer\PHPMailer;
     }
 
     function confirmMail(String $adresse,  String $login, String $lien)
-    {
-        //creation du mail a envoyer
-        $id_joueur= 123456;
-        $lien = "https://localhost//Projet_web/PaintBallTraker-s/confirm.php?id=" . $id_joueur;
+    {   
+        //creation du mail
         $mail= connectMail();
         $mail->From = "piloa@alwaysdata.net";
         $mail->Subject = "Confirmation inscription PaintBallTrakers";
@@ -112,28 +147,24 @@ use PHPMailer\PHPMailer\PHPMailer;
 
     }
     
-    function verifDate($id)
+    function verifDate(String $id): bool
     {
-        // recuperation de la date d'inscription de l'utilisateur 
+        //recuperation de la date d'inscription de l'utilisateur 
         $conn = openBD();
         $result = $conn->query("SELECT date_inscription FROM Utilisateur WHERE id='" . $id . "';");
         $dateSign = "";
+        $dateLimit = date_create_from_format('Y-m-d', '2021-12-12');
 
-        //rajout de deux jour sur la date d'inscription delais de validation
-        
         //recuperation de la date actuel
         $nowDate = new dateTime;
+        $nowDateString = "" . $nowDate->format('Y-m-d');
         
-        $testDate = new DateTime();
-        $test = $testDate->format('Y-m-d');
-        $datetest = date_create_from_format('Y-m-d', '2021-12-12');
-        $date = $nowDate->format('Y-m-d');
-        $adTwoDay = new DateInterval('P2D');
-        echo  $nowDate->format('Y-m-d');
-        $nowDate->add($adTwoDay);
-        $final = $nowDate->format('Y-m-d');
-        echo 'date: ' .$final ;
-        echo 'test: ' . $datetest->format('m-Y-d');
+        
+        if($nowDateString != $dateSign)
+        {
+            return false;
+        }
+    return true;
     }
 
     function idUnique(String $champs)
@@ -165,6 +196,18 @@ use PHPMailer\PHPMailer\PHPMailer;
         $conn->query("INSERT INTO joueur(id_joueur, nom_joueur, prenom_joeur) VALUES (" . $id_joueur . $nom . $prenom . ");");
         $id_joueur = "," . $id_joueur;
         $conn->query("INSERT INTO Utilisateur(pseudo,pasword,adresse_mail,date_naissance,id_joueur,id_joueur) VALUES (" . $login . $mdp . $adresse . $date . $id_joueur . ");");
+    }
+
+    function verifLogin($login): bool
+    {
+        $conn = openBD();
+        $query = $conn->query("SELECT * FROM Utilisateur WHERE login='" . $login ."';");
+
+        if($query->num_rows == 0)
+        {
+            return true;
+        }
+    return false;
     }
 
     function inscription():string
@@ -203,6 +246,16 @@ use PHPMailer\PHPMailer\PHPMailer;
             $erreur = "taille login invalide, " . $erreur;
             $haveErreur = true;
         }
+        else
+        {
+            //verifie l'unicite du login
+            if(!verifLogin($login))
+            {
+                $erreur = "login déja utiliser, " . $erreur;
+                $haveErreur = true;
+            }
+        }
+
         if(strlen($mdp) > 20 || strlen($mdp) < 0)
         {
             $erreur = "taille mdp invalide, " . $erreur;
@@ -226,6 +279,7 @@ use PHPMailer\PHPMailer\PHPMailer;
             //ajout des donnes d'inscription dans la base de donnes   
             addCompteBD($mdp, $nom, $date,$login,$prenom, $adresse, $id_joueur);
 
+            //creation du lien personaliser
             $lien = "https://localhost//Projet_web/PaintBallTraker-s/confirm.php?id=" . $id_joueur;
 
             //envoie du mail de confirmation
