@@ -24,31 +24,30 @@
     <h2> Paintball Loisir</h2>
     <div class="row">
       <div class="col-12 col-md-6 col-xl-3">
+        <!--Card Battle Royale-->
         <div class="pCard_card_BR">
+          <!--Partie haute de la Card-->
           <div class="pCard_up">
-          <!--  <div class="pCard_text">
-              <h2>Battle Royale</h2>
-            </div> -->
             <div class="pCard_add_BR">
               <i class="fas fa-plus"></i>
             </div>
           </div>
+          <!--Partie basse de la Card -->
           <div class="pCard_down">
             <div>
               <p>Battle Royale</p>
             </div>
           </div>
+          <!--Verso de la Card-->
           <div class="pCard_back">
             <p>Dans ce mode de jeu vous êtes 10 sur le terrain , chacun pour sa peau , un seul en sortira vivant , et se verra récompensé d’un cadeau !</p>
           </div>
         </div>
       </div>  
       <div class="col-12 col-md-6 col-xl-3">
+        <!--Card DeathMatch-->
         <div class="pCard_card_DM">
             <div class="pCard_up">
-            <!--  <div class="pCard_text">
-                <h2>Battle Royale</h2>
-              </div> -->
               <div class="pCard_add_DM">
                 <i class="fas fa-plus"></i>
               </div>
@@ -64,11 +63,9 @@
         </div> 
       </div>
       <div class="col-12 col-md-6 col-xl-3">
+        <!--Card Le Fort-->
         <div class="pCard_card_LF">
             <div class="pCard_up">
-            <!--  <div class="pCard_text">
-                <h2>Battle Royale</h2>
-              </div> -->
               <div class="pCard_add_LF">
                 <i class="fas fa-plus"></i>
               </div>
@@ -84,11 +81,9 @@
         </div> 
       </div>
       <div class="col-12 col-md-6 col-xl-3">
+        <!--Card La Bombe-->
         <div class="pCard_card_LB">
             <div class="pCard_up">
-            <!--  <div class="pCard_text">
-                <h2>Battle Royale</h2>
-              </div> -->
               <div class="pCard_add_LB">
                 <i class="fas fa-plus"></i>
               </div>
