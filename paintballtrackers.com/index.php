@@ -23,194 +23,91 @@
     </p>
     <h2> Paintball Loisir</h2>
     <div class="row">
-      <!--Card BATTLEROYALE-->
-      <div class="pCard_card">
-        <!--Partie haute de la carte--> 
-        <div id="pCard_up_BattleRoyale">
-          <div class="pCard_text">
-            
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="pCard_card_BR">
+          <div class="pCard_up">
+          <!--  <div class="pCard_text">
+              <h2>Battle Royale</h2>
+            </div> -->
+            <div class="pCard_add_BR">
+              <i class="fas fa-plus"></i>
+            </div>
           </div>
-          <div class="pCard_add">
-            <i class="fas fa-plus"></i>
+          <div class="pCard_down">
+            <div>
+              <p>Battle Royale</p>
+            </div>
+          </div>
+          <div class="pCard_back">
+            <p>Dans ce mode de jeu vous êtes 10 sur le terrain , chacun pour sa peau , un seul en sortira vivant , et se verra récompensé d’un cadeau !</p>
           </div>
         </div>
-        <!--Partie basse de la carte--> 
-        <div class="pCard_down">
-          <div class="card_sousTitre_Accueil">
-            <p>Battle Royale</p>
-            <p>Pas de limite de joueurs</p>
+      </div>  
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="pCard_card_DM">
+            <div class="pCard_up">
+            <!--  <div class="pCard_text">
+                <h2>Battle Royale</h2>
+              </div> -->
+              <div class="pCard_add_DM">
+                <i class="fas fa-plus"></i>
+              </div>
+            </div>
+            <div class="pCard_down">
+              <div>
+                <p>Deathmatch</p>
+              </div>
+            </div>
+            <div class="pCard_back">
+            <p>Deux équipes s'affronte, la dernière équipe à rester dans le match gagne la partie</p>
           </div>
-        </div>
-        <!--Verso de la carte-->
-        <div class="pCard_back">
-          <p>Maîtrise des langages suivants :</p>
-          <span style="font-size: 3em;">
-            <span style="color: #e9573f;">
-              <i class="fab fa-html5"></i>
-            </span>
-          </span>    
-          <span style="font-size: 3em;">
-            <span style="color: #264de4;">
-              <i class="fab fa-css3-alt"></i>
-            </span>
-          </span>
-          <span style="font-size: 3em;">
-            <span style="color: #f7df1d;">
-              <i class="fab fa-js-square"></i>
-            </span>
-          </span>
-          <span style="font-size: 3em;">
-              <span style="color: #777bb3;">
-              <i class="fab fa-php"></i>
-              </span>
-          </span>  
-          <img src="img/logo-mysql.png" style="vertical-align: top; width:20%;">
-        </div>
+        </div> 
       </div>
-      <!--CARD DEATHMATCH-->
-      <div class="pCard_card">
-        <!--Partie haute de la carte--> 
-        <div id="pCard_up_Deathmatch">
-          <div class="pCard_text">
-
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="pCard_card_LF">
+            <div class="pCard_up">
+            <!--  <div class="pCard_text">
+                <h2>Battle Royale</h2>
+              </div> -->
+              <div class="pCard_add_LF">
+                <i class="fas fa-plus"></i>
+              </div>
+            </div>
+            <div class="pCard_down">
+              <div>
+                <p>Le Fort</p>
+              </div>
+            </div>
+            <div class="pCard_back">
+            <p>Defendez votre Fort plus de 20 minutes contre les assailants afin de gagnez la partie.</p>
           </div>
-          <div class="pCard_add">
-            <i class="fas fa-plus"></i>
-          </div>
-        </div>
-        <!--Partie basse de la carte--> 
-        <div class="pCard_down">
-          <div class="card_sousTitre_Accueil">
-            <p>Deathmatch</p>
-            <p>Pas de limite de joeurs</p>
-          </div>
-        </div>
-        <!--Verso de la carte-->
-        <div class="pCard_back">
-          <p>Maîtrise des langages suivants :</p>
-          <span style="font-size: 3em;">
-            <span style="color: #e9573f;">
-              <i class="fab fa-html5"></i>
-            </span>
-          </span>    
-          <span style="font-size: 3em;">
-            <span style="color: #264de4;">
-              <i class="fab fa-css3-alt"></i>
-            </span>
-          </span>
-          <span style="font-size: 3em;">
-            <span style="color: #f7df1d;">
-              <i class="fab fa-js-square"></i>
-            </span>
-          </span>
-          <span style="font-size: 3em;">
-            <span style="color: #777bb3;">
-              <i class="fab fa-php"></i>
-            </span>
-          </span>  
-          <img src="img/logo-mysql.png" style="vertical-align: top; width:20%;">
-          </div>
-        </div>
-      <!--</div>-->
-      <!--CARD LE FORT-->
-      <div class="pCard_card">
-        <!--Partie haute de la carte--> 
-        <div id="pCard_up_LeFort">
-          <div class="pCard_text">
-
-          </div>
-          <div class="pCard_add">
-            <i class="fas fa-plus"></i>
-          </div>
-        </div>
-        <!--Partie basse de la carte--> 
-        <div class="pCard_down">
-          <div class="card_sousTitre_Accueil">
-            <p>Le Fort</p>
-            <p>Pas de limite de joueurs</p>
-          </div>
-        </div>
-        <!--Verso de la carte-->
-        <div class="pCard_back">
-          <p>Maîtrise des langages suivants :</p>
-          <span style="font-size: 3em;">
-            <span style="color: #e9573f;">
-              <i class="fab fa-html5"></i>
-            </span>
-          </span>    
-          <span style="font-size: 3em;">
-            <span style="color: #264de4;">
-              <i class="fab fa-css3-alt"></i>
-            </span>
-          </span>
-          <span style="font-size: 3em;">
-            <span style="color: #f7df1d;">
-              <i class="fab fa-js-square"></i>
-            </span>
-          </span>
-          <span style="font-size: 3em;">
-            <span style="color: #777bb3;">
-              <i class="fab fa-php"></i>
-            </span>
-          </span>  
-          <img src="img/logo-mysql.png" style="vertical-align: top; width:20%;">
-          </div>
-        </div>
-     <!-- </div> -->
-            <!--CARD LES BOMBES-->
-            <div class="pCard_card">
-        <!--Partie haute de la carte--> 
-        <div id="pCard_up_LesBombes">
-          <div class="pCard_text">
-
-          </div>
-          <div class="pCard_add">
-            <i class="fas fa-plus"></i>
-          </div>
-        </div>
-        <!--Partie basse de la carte--> 
-        <div class="pCard_down">
-          <div class="card_sousTitre_Accueil">
-            <p>Les Bombes</p>
-            <p>Pas de limite de joueurs</p>
-          </div>
-        </div>
-        <!--Verso de la carte-->
-        <div class="pCard_back">
-          <p>Maîtrise des langages suivants :</p>
-          <span style="font-size: 3em;">
-            <span style="color: #e9573f;">
-              <i class="fab fa-html5"></i>
-            </span>
-          </span>    
-          <span style="font-size: 3em;">
-            <span style="color: #264de4;">
-              <i class="fab fa-css3-alt"></i>
-            </span>
-          </span>
-          <span style="font-size: 3em;">
-            <span style="color: #f7df1d;">
-              <i class="fab fa-js-square"></i>
-            </span>
-          </span>
-          <span style="font-size: 3em;">
-            <span style="color: #777bb3;">
-              <i class="fab fa-php"></i>
-            </span>
-          </span>  
-          <img src="img/logo-mysql.png" style="vertical-align: top; width:20%;">
-          </div>
-        </div>
+        </div> 
       </div>
-    </row>
-      <p>Les principaux modes de jeux au Paintball sont:</p>
-      <ul>
-        <li> Battle royale </li>
-        <li> Le Deathmatch par équipe </li>
-        <li> Le Fort </li>
-        <li> Les Bombes </li>
-      </ul>
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="pCard_card_LB">
+            <div class="pCard_up">
+            <!--  <div class="pCard_text">
+                <h2>Battle Royale</h2>
+              </div> -->
+              <div class="pCard_add_LB">
+                <i class="fas fa-plus"></i>
+              </div>
+            </div>
+            <div class="pCard_down">
+              <div>
+                <p>Les Bombes</p>
+              </div>
+            </div>
+            <div class="pCard_back">
+            <p>La première équipe qui ramène la bombe près du camps ennemie, gagne la partie. Attention, la bombe doit être portée par 4 joueurs !</p>
+          </div>
+        </div> 
+      </div>
+    </div>     
     <h2>Paintball Compétition</h2>  
+    <div style="text-align: center;">
+    <img src="img/home_caroussel_img1.png" style="border-radius: 30px;">
+    </div>
     <h2>Que peut vous apporter notre site?</h2>
     <!-- textes explicatifs du site -->
     <p class="intro"> 
@@ -338,6 +235,10 @@ infoDiv.innerHTML= "<p> Extension Leaflet version "+Gp.leafletExtVersion+" ("+Gp
   </script>
   <div id="map"></div>
   <div id="info"></div>      
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+
+<script type="text/javascript" src="script.js"></script>
 
 <?php
     include_once 'include/footer.inc.php';

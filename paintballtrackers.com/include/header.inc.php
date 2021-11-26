@@ -25,6 +25,10 @@
     <!--Extension Géoportail pour Leaflet-->
     <link rel="stylesheet" href="plugins/GpPluginLeaflet-2.1.9/GpPluginLeaflet-map.css"/>
     <script src="plugins/GpPluginLeaflet-2.1.9/GpPluginLeaflet-map.js" data-key="53p4y6s38oqms2vkep7c0p0v"></script>
+
+    <script>
+
+</script>
 </head>  
 <body>    
   <div class="sidebar">
