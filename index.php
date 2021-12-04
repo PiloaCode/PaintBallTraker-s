@@ -3,6 +3,7 @@
     $description = "Page d'accueil du site.";
 
     include_once 'include/head.inc.php';
+    include_once 'include/function.inc.php'
 ?>
 <script type="text/javascript" src="test.js" >
 
@@ -120,5 +121,6 @@
 
 
 <?php
+     printf("<p> Nous avons une session en cours: " . hasSession() . "</p>");
     include_once 'include/footeur.inc.php';
 ?>

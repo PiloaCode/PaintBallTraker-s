@@ -3,16 +3,38 @@ header
     background-color: #4394FA;     
 }
 
+main
+{
+    height: 100vh;
+}
+
 body
 {
-    background-color: #293133; /*#293133*/ /*#44b6d3*/
+    background-color: #293133; /*#293133 */
     color: white;
+    height: 100vh;
+    width: 210vh;
+    /* overflow: hidden; */
+}
+
+footer strong
+{
+    margin-right: 30%;
+}
+footer div
+{
+    margin-top: 50%;
 }
 
 footer
 {
-    background-color: black;
-    color:white;
+    background-color: #4394FA;
+    color:black;
+    height: 60px;
+    position: fixed;
+    bottom: 0%;
+    right: 0;
+    left: 0;
 }
 
 /* css qui modifie les titres de niveaux 1 de toutes les pages */
@@ -80,9 +102,11 @@ form
 }
 input
 {
-    background-color: #E9EDDE;
-    border-radius: 5px;
+    background-color: #293133; /*E9EDDE   293133*/
+    /*border-radius: 5px;*/
     margin-top: 5px;
+    border:none;
+    color: #E9EDDE;
 }
 label
 {
@@ -215,6 +239,46 @@ label
 {
     border-radius: 15%;
 }
+
+thead tr
+{
+    background-color: #FDE74C; 
+    text-align: center;
+    color: #293133;
+    font-weight: bold;
+    font-family: monospace;
+    border-radius: 20px;
+    height: 60px;
+}
+
+table
+{
+    width: 70%;
+   font-size: 1.5rem; 
+   color: black;
+   border-radius: 20px;
+   color: #293133;
+   margin: auto;
+   overflow: hidden;
+   margin-top: 2%;
+   margin-bottom: 2%;
+}
+
+tbody
+{
+    background-color: white;
+    border-radius: 20px;
+    height: 60px;
+}
+td
+{
+    text-align: center;
+}
+tbody tr
+{
+    height: 60px;
+}
+
 
 /* #EFD807*/ /*#FAED27*/
 /* 20rem;  height: 530px;*/

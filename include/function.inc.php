@@ -6,21 +6,20 @@ use PHPMailer\PHPMailer\PHPMailer;
     include_once 'include/PHPMailer-master/src/PHPMailer.php';
     include_once 'include/PHPMailer-master/src/SMTP.php';
 
-
-    function valideMdp(string $mdp, string $login)
+    function valideMdp(string $mdp, string $login): bool
     {
-        printf("<p> mdp:" . $mdp . "</p>");
-        $hash = password_hash($mdp, PASSWORD_DEFAULT);
-
         $conn = openBD();
-        $result = $conn->query("SELECT pasword FROM Utilisateur WHERE login=" .$login .";");
-        $mdpBD = "";
+        $query = $conn->query("SELECT pasword FROM Utilisateur WHERE pseudo=\"" .$login ."\";");
+        $result = $query->fetch_assoc();
+        $conn->close();
 
-        if(password_verify($mdp,$mdpBD))
+        $mdpBD = $result['pasword'];
+
+        if(password_verify($mdp,$mdpBD) == true)
         {
-
+            return true;
         }
-        printf("<p> hash:" . $hash . "</p>"); 
+    return false;
     }
 
     function connectMail()
@@ -31,6 +30,7 @@ use PHPMailer\PHPMailer\PHPMailer;
         $mail->Port = 465;
         $mail->SMTPAuth = 1;
         $mail->Host ='smtp-piloa.alwaysdata.net';
+        $mail->Hostname = "PaintBallTraker's";
 
         if($mail->SMTPAuth)
         {
@@ -54,47 +54,155 @@ use PHPMailer\PHPMailer\PHPMailer;
     return $mail;
     }
 
-    function tableUser()
+    function tableUser($login)
     {
         $conn = openBD();
-        $conn->query("SELECT * FROM Utilisateur");
+        $res = $conn->query("SELECT * FROM Utilisateur WHERE pseudo=\'" . $login . "\';");
+        $conn->close();
     }
 
-    function tableJoueur()
+    function tableJoueur($id_joueur)
     {
         $conn = openBD();
-        $conn->query("");
+        $res = $conn->query("SELECT * FROM Joueur WHERE id_joueur =" . $id_joueur .";");
+        $conn->close();
     }
 
-    function tableEquipe()
+    function adJoueur($nom, $prenom)
     {
         $conn = openBD();
+        $request = "INSERT INTO Joueur (nom_joueur,prenom_joueur) VALUE (?,?)";
+        $query = $conn->prepare($request);
+
+        if($query)
+        {
+            $query->bind_param('ss', $nom, $prenom);
+            $query->execute();
+        }
+        $conn->close();
     }
 
-    function tableMatchs()
+    function adEquipe($idEquipe,$nomEquipe, $nbJoueur)
     {
         $conn = openBD();
+        $request = "INSERT INTO Equipe (id_equipe,nom_equipe,nb_joueur) VALUE (?,?,?)";
+        $query = $conn->prepare($request);
+
+        if($query)
+        {
+            $query->bind_param('sss', $idEquipe, $nomEquipe, $nbJoueur);
+            $query->execute();
+        }
+
+        $conn->close();
     }
 
-    function tableDeathmatch()
+    function adJOEquipe($idJoueur, $idEquipe)
     {
         $conn = openBD();
+        $request = "INSERT INTO appartient_a (id_joueur,id_equipe) VALUE (?,?)";
+        $query = $conn->prepare($request);
+
+        if($query)
+        {
+            $query->bind_param('ss', $$idJoueur, $$idEquipe);
+            $query->execute();
+        }
+
+        $conn->close();
     }
 
-    function tableProtectVip()
+    function adMatch($idMatch, $terrain, $equipeAllie, $equipeAdv, $dureeMatch, $nbrEliminUser, $nombreLoader, $Duree_ingame, $choixMatch, $typeGun)
     {
         $conn = openBD();
+        $request = "INSERT INTO Matchs (id_joueur,id_equipe) VALUE (?,?)";
+        $query = $conn->prepare($request);
+
+        if($query)
+        {
+            $query->bind_param('ss', $$idJoueur, $$idEquipe);
+            $query->execute();
+        }
+
+        $conn->close();
     }
 
-    function tableCaptureDrapeau()
+    function tableEquipe($login)
     {
         $conn = openBD();
+        $res = $conn->query("SELECT * FROM Equipe e, Utilisateur u, appartient_a a WHERE u.pseudo =\'" . $login . "\' AND a.id_joueur = u.id_joueur AND a.id_equipe = e.id_equipe;");
+        $res = $res->fetch_all(MYSQLI_ASSOC);
+        $conn->close();
+    return $res;
     }
 
-    function adreseeConfirme()
+    function tableMatchs($login)
     {
         $conn = openBD();
+        $rep = $conn->query("SELECT DISTINCT id_match,terrain,equipe_allie,equipe_adv,duree_match,nbr_elimin_user,nombre_loader,duree_ingame,type_gun FROM Matchs m, Utilisateur u, appartient_a a, Equipe e WHERE  u.pseudo = \' " .$login . "\' AND a.id_joueur = u.id_joueur AND m.equipe_allie = a.id_equipe AND id_match ;");
+        $rep = $rep->fetch_all(MYSQLI_ASSOC);
+        $conn->close();
+    return $rep;
+    }
 
+    function afficheTabMatch($login)
+    {
+        $res = tableMatchs($login);
+
+            $chaine =  "<table>";
+            $chaine .= "<thead>";
+            $chaine .= "<tr>";
+            $chaine .= "<th> id match </th>";
+            $chaine .= "<th> terrain </th>";
+            $chaine .= "<th> equipe_allie </th>";
+            $chaine .= "<th> equipe_adv </th>";
+            $chaine .= "<th> duree_match </th>";
+            $chaine .= "<th> nbr_elimin_user </th>";
+            $chaine .= "<th> nombre_loader </th>";
+            $chaine .= "<th> duree_ingame </th>";
+            $chaine .= "<th> type_gun </th>";
+            $chaine .="</tr>";
+            $chaine .= "</thead>";
+            $chaine .= "<tbody>";
+
+        foreach($res as $line)
+        {
+            $chaine .= "<tr>";
+            $chaine .= "<td>" . $line['id_match'] . "</td>";
+            $chaine .= "<td>" . $line['terrain'] . "</td>";
+            $chaine .= "<td>" . $line['equipe_allie'] . "</td>";
+            $chaine .= "<td>" . $line['equipe_adv'] . "</td>";
+            $chaine .= "<td>" . $line['duree_match'] . "</td>";
+            $chaine .= "<td>" . $line['nbr_elimin_user'] . "</td>";
+            $chaine .= "<td>" . $line['nombre_loader'] . "</td>";
+            $chaine .= "<td>" . $line['duree_ingame'] . "</td>";
+            $chaine .= "<td>" . $line['type_gun'] . "</td>";
+            $chaine .= "</tr>";
+        }
+        $chaine .= "</tbody>";
+        $chaine .= "</table>";
+    return $chaine;
+    }
+
+    function tableDeathmatch($idMatch)
+    {
+        $conn = openBD();
+        $conn->query("SELECT * FROM Deathmatch WHERE id_dm = \'" . $idMatch . "\';");
+        $conn->close();
+    }
+
+    function tableProtectVip($idMatch)
+    {
+        $conn = openBD();
+        $conn->query("SELECT * FROM Protect_vip WHERE id_pv = \'" . $idMatch . "\';");
+        $conn->close();
+    }
+
+    function tableCaptureDrapeau($idMatch)
+    {
+        $conn = openBD();
+        $conn->query("SELECT * FROM Capture_drapeau WHERE id_cd = \'" . $idMatch . "\';");
+        $conn->close();
     }
 
     function confirmMail(String $adresse,  String $login, String $lien)
@@ -104,10 +212,17 @@ use PHPMailer\PHPMailer\PHPMailer;
         $mail->From = "piloa@alwaysdata.net";
         $mail->Subject = "Confirmation inscription PaintBallTrakers";
         $mail->WordWrap = 50;
-        $mail->AltBody ="message voici mon message tout se passe bien chez nouss";
-        $mail->Body = "Bonjour" . $login . ",\n voici l'adresse de confirmation de mail: " . $lien;
+        //$mail->AltBody ="message voici mon message tout se passe bien chez nouss";
+        
+        $mail->isHTML(true); //false
+        $mail->Body = "<html>
+            <h3> Confirmer votre inscription sur PaintBallTrakers </h3>
+            <p> Bonjour $login, </p>
+            <p> Bonjour pour confirmer votre inscription à notre site web utiliser le lien suivant <br>
+                <a href=\"$lien\" > cliquer ici </a>
+            </p>
+        </html>"; //"Bonjour" . $login . ",\n voici l'adresse de confirmation de mail: " . $lien
         $mail->addAddress($adresse);
-        $mail->isHTML(false);
         $rep = $mail->send();
 
         if (!$rep) {
@@ -119,14 +234,9 @@ use PHPMailer\PHPMailer\PHPMailer;
 
     function openBD(): mysqli
     {
-        $port = 3306;
-        $user = "piloa";
-        $mdp = "Vilucas04";
-        $BD = "piloa_paintballtrakers_database";
-        $hostname = "mysql-piloa.alwaysdata.net";
+        include_once 'bd.con.php';
 
         $conn = new mysqli( $hostname, $user, $mdp, $BD, $port);
-
         if($conn->connect_error)
         {
             die('Erreur : ' .$conn->connect_error);
@@ -135,36 +245,63 @@ use PHPMailer\PHPMailer\PHPMailer;
         {
             echo 'Connexion réussie';
         }
-       
-       
-       /* $result = $conn->query("SELECT * FROM Matchs");
-        printf("<p> mdp:" . $result->num_rows . "</p>");*/
     return $conn;
     }
 
     function validRegistation()
     {
+        $id_lien = $_GET['id'];
 
+        //recuperation des informations dans la BD
+        $conn = openBD();
+        $request = "SELECT * FROM Utilisateur WHERE id_lien=\"" .$id_lien ."\";";
+        $query = $conn->query($request);
+
+        if($query)
+        {
+            $res = $query->fetch_assoc();
+            if(verifDate($id_lien))
+            {
+                $request = "UPDATE Utilisateur SET actif=1;";
+                $query = $conn->query($request);
+
+                printf("<p> tout se passe bien </p>");
+            }
+            else
+            {
+                printf("<p> problème de date </p>");
+            }
+        }
+        else
+        {
+            printf("<p> problème de lien </p>");
+        }
+        
+        $conn->close();
     }
     
-    function verifDate(String $id): bool
+    function verifDate(String $id_lien): bool
     {
         //recuperation de la date d'inscription de l'utilisateur 
         $conn = openBD();
-        $result = $conn->query("SELECT date_inscription FROM Utilisateur WHERE id='" . $id . "';");
-        $dateSign = "";
+        $request = "SELECT * FROM Utilisateur WHERE id_lien=\"" .$id_lien ."\";";
+        $query = $conn->query($request);
+        $conn->close();
+        
+        $res = $query->fetch_assoc();
+        $dateSign = $res['date_inscription'];
         $dateLimit = date_create_from_format('Y-m-d', '2021-12-12');
 
         //recuperation de la date actuel
         $nowDate = new dateTime;
         $nowDateString = "" . $nowDate->format('Y-m-d');
         
-        
-        if($nowDateString != $dateSign)
+        if(strcmp($nowDateString, $dateSign) == 0)
         {
-            return false;
+            return true;
         }
-    return true;
+
+    return false;
     }
 
     function idUnique(String $champs)
@@ -173,41 +310,72 @@ use PHPMailer\PHPMailer\PHPMailer;
         do
         {
             $id = mt_rand(10000000, 99999999);
-            $query = $conn->query("SELECT * FROM Joueur WHERE" . $champs . "=\"" . $id ."\"");
+            $query = $conn->query("SELECT * FROM Utilisateur WHERE " . $champs . "=\"" . $id ."\";");
         }while($query->num_rows != 0);
     
     return $id;
     }
 
-    function addCompteBD($mdp, $nom, $date,$login,$prenom, $adresse, $id_joueur)
+    function addCompteBD($mdp, $nom, $date,$login,$prenom, $adresse, $id_lien)
     {
         //formatage des données
+        printf("mdp rentrer dans base est:" . $mdp ."voila");
         $mdp =  password_hash($mdp, PASSWORD_DEFAULT);
-        $mdp = ",'" . $mdp . "'";
-        $nom = ",'" . $nom . "'";
-        $date = ",'" . $date . "'";
-        $login = "'" . $login . "'";
-        $prenom = ",'" . $prenom . "'";
-        $adresse = ",'" . $adresse . "'";
-        $id_joueur = "'" . $id_joueur . "'";
+        printf("le hesh est:" . $mdp ."voila");
 
         $conn = openBD();
+        
+        //chaine de caretere representant la requete numero une
+        $request1 = "INSERT INTO Joueur(nom_joueur, prenom_joueur) VALUES (?,?)";
 
-        $conn->query("INSERT INTO joueur(id_joueur, nom_joueur, prenom_joeur) VALUES (" . $id_joueur . $nom . $prenom . ");");
-        $id_joueur = "," . $id_joueur;
-        $conn->query("INSERT INTO Utilisateur(pseudo,pasword,adresse_mail,date_naissance,id_joueur,id_joueur) VALUES (" . $login . $mdp . $adresse . $date . $id_joueur . ");");
+        //chaine de caretere representant la requete numero deux
+        $request2 = "INSERT INTO Utilisateur(pseudo,pasword,adresse_mail,date_naissance,id_joueur,actif,id_lien,date_inscription) VALUES (?,?,?,?,?,0,?,NOW())";
+
+        printf("\n\n<p>requete 1 est: " . "INSERT INTO Joueur(nom_joueur, prenom_joueur) VALUES (\"" . $nom ."\",\"" . $prenom . "\"); </p>");
+
+        // entre des donnees du joueur
+        $query1 = $conn->prepare($request1);
+        if($query1)
+        {
+            $query1->bind_param('ss',$nom,$prenom);
+            $query1->execute();
+        }
+        else
+        {
+            printf("problème a la requette 1");
+        }
+
+        //reprendre le id joueur pour l'inserer dans le profil de l'utilisateur
+        $query = $conn->query("SELECT * FROM Joueur;");
+        $id_joueur = $query->num_rows;
+
+        $query2 = $conn->prepare($request2);
+
+        if($query2)
+        {
+             //entre des donnees de l'utilisateur
+            $query2->bind_param('ssssis',$login,$mdp,$adresse,$date,$id_joueur,$id_lien);
+            $query2->execute();
+        }
+        else
+        {
+            printf("problème a la requette 2");
+        }
+
+        $conn->close();
     }
 
     function verifLogin($login): bool
     {
         $conn = openBD();
-        $query = $conn->query("SELECT * FROM Utilisateur WHERE login='" . $login ."';");
+        $query = $conn->query("SELECT * FROM Utilisateur WHERE pseudo='" . $login ."';");
+        $nbrLigne = $query->num_rows;
 
-        if($query->num_rows == 0)
+        if($nbrLigne == 0)
         {
-            return true;
+            return 1;
         }
-    return false;
+    return 0;
     }
 
     function inscription():string
@@ -223,28 +391,28 @@ use PHPMailer\PHPMailer\PHPMailer;
         $prenom = $_POST["prenom"];
         $adresse = $_POST["adresse"];
        
-        $haveErreur = false;
+        $haveErreur = 0;
 
         //verification sur les infos à entrer dans la bd
         if(!filter_var($adresse, FILTER_VALIDATE_EMAIL) || strlen($adresse) > 100)
         {
             $erreur = "adresse mail invalide, " . $erreur;
-            $haveErreur = true;
+            $haveErreur = 1;
         }
         if(strlen($nom) > 30 || strlen($nom) < 0)
         {
             $erreur = "taille nom invalide, " . $erreur;
-            $haveErreur = true;
+            $haveErreur = 1;
         }
         if(strlen($prenom) > 25 || strlen($prenom) < 0)
         {
             $erreur = "taille prenom invalide, " . $erreur;
-            $haveErreur = true;
+            $haveErreur = 1;
         }
         if(strlen($login) > 20 || strlen($login) < 0)
         {
             $erreur = "taille login invalide, " . $erreur;
-            $haveErreur = true;
+            $haveErreur = 1;
         }
         else
         {
@@ -252,19 +420,19 @@ use PHPMailer\PHPMailer\PHPMailer;
             if(!verifLogin($login))
             {
                 $erreur = "login déja utiliser, " . $erreur;
-                $haveErreur = true;
+                $haveErreur = 1;
             }
         }
 
         if(strlen($mdp) > 20 || strlen($mdp) < 0)
         {
             $erreur = "taille mdp invalide, " . $erreur;
-            $haveErreur = true;
+            $haveErreur = 1;
         }
         if( strcmp($mdp, $cMdp) !== 0)
         {
             $erreur = "confirmation de pasword invalide, " . $erreur;
-            $haveErreur = true;
+            $haveErreur = 1;
         }
 
         if($haveErreur)
@@ -274,21 +442,77 @@ use PHPMailer\PHPMailer\PHPMailer;
         }
         else
         {
-            $id_joueur = idUnique("id_joueur");
+            printf("on a des erreur: " . $haveErreur);
+            $id_lien = idUnique("id_lien");
 
             //ajout des donnes d'inscription dans la base de donnes   
-            addCompteBD($mdp, $nom, $date,$login,$prenom, $adresse, $id_joueur);
+            addCompteBD($mdp, $nom, $date,$login,$prenom, $adresse, $id_lien);
 
             //creation du lien personaliser
-            $lien = "https://localhost//Projet_web/PaintBallTraker-s/confirm.php?id=" . $id_joueur;
+            $lien = "https://piloa.alwaysdata.net/PaintBallTraker's/confirm.php?id="  . $id_lien;
+            //lien local: "https://localhost//Projet_web/PaintBallTraker-s/confirm.php?id=" . $id_lien;
+            //lien en ligne: "https://piloa.alwaysdata.net/PaintBallTraker's/confirm.php?id=" . $id_lien;
 
             //envoie du mail de confirmation
             confirmMail($adresse, $login, $lien);
 
             $message= "Inscription validée!";
+            printf("création compte réussie");
         }
     
 
     return $message;
+    }
+
+    function isActif(string $login): bool
+    {
+        $conn = openBD();
+        $request = "SELECT actif FROM Utilisateur WHERE pseudo=(?)";
+        $query = $conn->prepare($request);
+
+        if($query)
+        {
+            $query->bind_param('s',$login);
+            $query->execute();
+            $rep = $query->get_result();
+            $rep = $rep->fetch_assoc();
+            $rep = $rep['actif'];
+            $conn->close();
+            
+            if($rep == 1)
+            {
+                return true;
+            }
+        }
+
+    return false;
+    }
+
+    function conect()
+    {
+        $mdp = $_POST['pasword'];
+        $login = $_POST['login'];
+
+        if(valideMdp($mdp,$login) && isActif($login))
+        {
+            session_start();
+            $_SESSION['login'] = $login;
+        }
+    }
+
+    function hasSession(): bool
+    {
+        if(session_status() == PHP_SESSION_ACTIVE)
+        {
+            return true;
+        }
+    return false;
+    }
+    function testAffiche($login)
+    {
+        $conn = openBD();
+        $query = $conn->query("SELECT * FROM Matchs;");
+        $matchs = $query->fetch_row();
+        $conn->close();
     }
 ?>

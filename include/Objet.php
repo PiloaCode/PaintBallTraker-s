@@ -1,4 +1,5 @@
 <?php
+include_once 'include/function.inc.php';
 class User
 {
     private $login;
@@ -134,27 +135,16 @@ class Equipe
 
 class Matchs
 {
-    private $loader;
-    private $terrain;
-    private $id_match;
-    private $type_gun;
-    private $dure_match;
-    private $choix_match;
-    private $dure_ingame;
-    private $choix_loisir;
-    private $nbr_elimmin_user;
-
+    private $login;
+    private $matchs;
+    
     public function __construct($loader, $terrain, $id_match, $type_gun, $dure_match, $choix_match, $dure_ingame, $choix_loisir, $nbr_elimmin_user)
     {
-        $this->loader = $loader;
-        $this->terrain = $terrain;
-        $this->id_match = $id_match;
-        $this->type_gun = $type_gun;
-        $this->dure_match = $dure_match;
-        $this->choix_match = $choix_match;
-        $this->dure_ingame = $dure_ingame;
-        $this->choix_loisir = $choix_loisir;
-        $this->nbr_elimmin_user = $$nbr_elimmin_user;
+        $this->login = $_SESSION['login'];
+        $conn = openBD();
+        $query = $conn->query("SELECT * FROM Matchs;");
+        $matchs = $query->fetch_row();
+        $conn->close();
     }
 
     public function set_loader($loader)
