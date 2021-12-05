@@ -7,10 +7,17 @@ var add = $('#mdpDiv');
 var form = $('#form');
 var cMdp = $('input[name=cMdp]')
 
+//recuperation buton html de la pages Matchs
+var addMatch = $('#addMatch');
+var printMatch = $('#printMatch');
+var addMEquipe = $('#addMEquipe');
+//recupe div a changer
+var result = $('#result');
+
 var dataLogin = 'login=' + login.val();
+
 var dataMdp = {mdp: mdp.val(), cMdp: cMdp.val()};
 
-var data = 
 /*input.keyup(function (e) { 
     //alert("Le texte change");
     //$('#cMdp').val().alert()
@@ -30,7 +37,7 @@ var data =
 });*/
 
 login.keyup(function (e) { $.ajax({ 
-    url: "include/AjaxLogin.inc.php",
+    url: "ajax/AjaxLogin.inc.php",
     type:"GET" ,
     data: {login: login.val()},
     
@@ -51,7 +58,7 @@ login.keyup(function (e) { $.ajax({
 
 cMdp.keyup(function(e){
     $.ajax({
-        url: "include/AjaxMdp.inc.php",
+        url: "ajax/AjaxMdp.inc.php",
         type: "GET",
         data: {mdp: mdp.val(), cMdp: cMdp.val()},
 
@@ -69,10 +76,29 @@ cMdp.keyup(function(e){
     });
 });
 
-
-
-test.keyup(function(e)
-{
+printMatch.click(function (e) { 
     e.preventDefault();
-  
+    $.ajax({
+        type: "get",
+        url: "ajax/Matchs.ajax.php",
+        success: function (response) 
+        {
+            result.html(response);
+        }
+    });
+    
+});
+
+addMatch.click(function (e) { 
+    e.preventDefault();
+
+    $.ajax({
+        type: "get",
+        url: "ajax/addMatch.ajax.php",
+        success: function (response) 
+        {
+            result.html(response);
+        }
+    });
+    
 });

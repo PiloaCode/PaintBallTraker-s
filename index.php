@@ -73,7 +73,7 @@
   <div class="col-12 col-lg-4" id="titi">
     <div class="card maCard" id="card1">
       <figure class="imgCard">
-        <img class="card-img-top" src="images/icon-force.png" alt="Card image cap">
+        <img class="card-img-top" src="img/icon-force.png" alt="Card image cap">
       </figure>
     <div class="card-body">
       <h5 class="titleCard">Augmente la force et l'endurance</h5>
@@ -88,7 +88,7 @@
   <div class="col-12 col-lg-4">
     <div class="card maCard">
       <figure class="imgCard ">
-        <img class="card-img-top" src="images/icon-confiance.png" alt="Card image cap">
+        <img class="card-img-top" src="img/icon-confiance.png" alt="Card image cap">
       </figure>
       <div class="card-body">
         <h5 class="titleCard">Gain de confiance en soi</h5>
@@ -103,7 +103,7 @@
   <div class="col-12 col-lg-4">
     <div class="card maCard" id="card3" >
       <figure class="imgCard">
-        <img class="card-img-top" src="images/icon-poids.png" alt="Card image cap">
+        <img class="card-img-top" src="img/icon-poids.png" alt="Card image cap">
       </figure>
       <div class="card-body">
         <h5 class="titleCard"> Permet la perte de poids </h5>

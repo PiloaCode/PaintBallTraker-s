@@ -6,6 +6,21 @@ use PHPMailer\PHPMailer\PHPMailer;
     include_once 'include/PHPMailer-master/src/PHPMailer.php';
     include_once 'include/PHPMailer-master/src/SMTP.php';
 
+    function openBD(): mysqli
+    {
+        include_once 'bd.con.php';
+
+        $conn = new mysqli( HOST, USER, MDP, BD, PORT);
+        if($conn->connect_error)
+        {
+            die('Erreur : ' .$conn->connect_error);
+        }
+        else
+        {
+        }
+    return $conn;
+    }
+
     function valideMdp(string $mdp, string $login): bool
     {
         $conn = openBD();
@@ -127,10 +142,19 @@ use PHPMailer\PHPMailer\PHPMailer;
         $conn->close();
     }
 
+    function tableEquipeId($id)
+    {
+        $conn = OpenBD();
+        $request = $conn->query("SELECT * FROM Equipe WHERE id_equipe = '" . $id ."'");
+        $res = $request->fetch_all(MYSQLI_ASSOC);
+        $conn->close();
+    return $res;
+    }
+
     function tableEquipe($login)
     {
         $conn = openBD();
-        $res = $conn->query("SELECT * FROM Equipe e, Utilisateur u, appartient_a a WHERE u.pseudo =\'" . $login . "\' AND a.id_joueur = u.id_joueur AND a.id_equipe = e.id_equipe;");
+        $res = $conn->query("SELECT * FROM Equipe e, Utilisateur u, appartient_a a WHERE u.pseudo ='" . $login . "' AND a.id_joueur = u.id_joueur AND a.id_equipe = e.id_equipe;");
         $res = $res->fetch_all(MYSQLI_ASSOC);
         $conn->close();
     return $res;
@@ -139,50 +163,13 @@ use PHPMailer\PHPMailer\PHPMailer;
     function tableMatchs($login)
     {
         $conn = openBD();
-        $rep = $conn->query("SELECT DISTINCT id_match,terrain,equipe_allie,equipe_adv,duree_match,nbr_elimin_user,nombre_loader,duree_ingame,type_gun FROM Matchs m, Utilisateur u, appartient_a a, Equipe e WHERE  u.pseudo = \' " .$login . "\' AND a.id_joueur = u.id_joueur AND m.equipe_allie = a.id_equipe AND id_match ;");
+        $request = "SELECT DISTINCT id_match,terrain,equipe_allie,equipe_adv,duree_match,nbr_elimin_user,nombre_loader,duree_ingame,type_gun FROM Matchs m, Utilisateur u, appartient_a a, Equipe e WHERE  u.pseudo = '" .$login . "' AND a.id_joueur = u.id_joueur AND m.equipe_allie = a.id_equipe AND id_match ";
+        $rep = $conn->query($request);
         $rep = $rep->fetch_all(MYSQLI_ASSOC);
         $conn->close();
     return $rep;
     }
 
-    function afficheTabMatch($login)
-    {
-        $res = tableMatchs($login);
-
-            $chaine =  "<table>";
-            $chaine .= "<thead>";
-            $chaine .= "<tr>";
-            $chaine .= "<th> id match </th>";
-            $chaine .= "<th> terrain </th>";
-            $chaine .= "<th> equipe_allie </th>";
-            $chaine .= "<th> equipe_adv </th>";
-            $chaine .= "<th> duree_match </th>";
-            $chaine .= "<th> nbr_elimin_user </th>";
-            $chaine .= "<th> nombre_loader </th>";
-            $chaine .= "<th> duree_ingame </th>";
-            $chaine .= "<th> type_gun </th>";
-            $chaine .="</tr>";
-            $chaine .= "</thead>";
-            $chaine .= "<tbody>";
-
-        foreach($res as $line)
-        {
-            $chaine .= "<tr>";
-            $chaine .= "<td>" . $line['id_match'] . "</td>";
-            $chaine .= "<td>" . $line['terrain'] . "</td>";
-            $chaine .= "<td>" . $line['equipe_allie'] . "</td>";
-            $chaine .= "<td>" . $line['equipe_adv'] . "</td>";
-            $chaine .= "<td>" . $line['duree_match'] . "</td>";
-            $chaine .= "<td>" . $line['nbr_elimin_user'] . "</td>";
-            $chaine .= "<td>" . $line['nombre_loader'] . "</td>";
-            $chaine .= "<td>" . $line['duree_ingame'] . "</td>";
-            $chaine .= "<td>" . $line['type_gun'] . "</td>";
-            $chaine .= "</tr>";
-        }
-        $chaine .= "</tbody>";
-        $chaine .= "</table>";
-    return $chaine;
-    }
 
     function tableDeathmatch($idMatch)
     {
@@ -230,22 +217,6 @@ use PHPMailer\PHPMailer\PHPMailer;
       } else{
             echo 'Message bien envoyé';
       }
-    }
-
-    function openBD(): mysqli
-    {
-        include_once 'bd.con.php';
-
-        $conn = new mysqli( $hostname, $user, $mdp, $BD, $port);
-        if($conn->connect_error)
-        {
-            die('Erreur : ' .$conn->connect_error);
-        }
-        else
-        {
-            echo 'Connexion réussie';
-        }
-    return $conn;
     }
 
     function validRegistation()
@@ -490,14 +461,15 @@ use PHPMailer\PHPMailer\PHPMailer;
 
     function conect()
     {
-        $mdp = $_POST['pasword'];
-        $login = $_POST['login'];
+       
+            $mdp = $_POST['pasword'];
+            $login = $_POST['login'];
 
-        if(valideMdp($mdp,$login) && isActif($login))
-        {
-            session_start();
-            $_SESSION['login'] = $login;
-        }
+            if(valideMdp($mdp,$login) && isActif($login))
+            {
+                session_start();
+                $_SESSION['login'] = $login;
+            }
     }
 
     function hasSession(): bool
