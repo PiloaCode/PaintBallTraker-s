@@ -1,126 +1,126 @@
 <?php
-    $title = "PaintBallTraker-s";
+    $title = "PaintBallTrakers";
     $description = "Page d'accueil du site.";
-
+    $h1 = "Paintball Trackers";
     include_once 'include/head.inc.php';
-    include_once 'include/function.inc.php'
+
 ?>
-<script type="text/javascript" src="test.js" >
 
-</script>
-<h1 id="h1Paint"> PaintBallTraker's </h1>
-
-<!-- texte d'explication du jeux de Paintball et de présentation du site -->
-<div class="row">
-<section>
-
+<!--Elements de ma page d'accueil--> 
   <h2>Qu'est-ce que le paintball?</h2>
 
-  <!-- texte explicatif du Paintball -->
-  <p class="intro"> 
-      La paintball est une activité sportive ou de loisir opposant deux équipes dont les joueurs
-      sont équipés de masques de protection et de lanceur (ou marqueurs). Les lanceurs propulsent
-      par air comprimé au CO2 des billes de peinture de calibre 0.68 constituées de capsules médicales
-      renfermant une gélatine colorée, biodégradable.Ces deux équipes  soppose l'une contre l'autre sur 
-      différents terrains délimités par des filets de protection. Le but est de réussir les différentes 
-      missions données par l'encadrant. La partie est gagnée lorque l'objectif est atteint ou lorsque 
-      les joeurs d'une équipe sont totalement éliminés par l'équipe adverses au moyen de leurs lanceurs.
-  </p>
+        <!-------------CODE VINCENT------------
 
-  <h3> Quels sont les principaux mode de jeux du paintball?</h3>
+  <div class='row'>
 
-    Les principaux modes de jeux au Paintball sont:
-    <ul class="intro">
-      <li> Battle royale </li>
-      <li> Le Deathmatch par équipe </li>
-      <li> Les Drapeaux </li>
-      <li> Les Bombes </li>
-    </ul>
-
-  <h2>Que peut vous apporter notre site?</h2>
-
-  <!-- textes explicatifs du site -->
-  <p class="intro"> 
-    Nous avons construction notre projet autour d'un butte précis, nous voulions appporter un service qui 
-    dès lors n'avais pas vraiment éter exploiter. Si il y à bien une chose que nous aimons voir, c'est notre
-    évolution et ce dans tout les domaines de notre vie. Pour l'Homme il est important de pouvoir remarquer 
-    une évolution Mais il est toujours plus vrai, que lorsque nous touchons au domaine sportif qui est en 
-    générale compétitife, cette règle s'applique d'autant plus. Si vous aussi vous aimez voir votre évolution
-    au fils du temp, et que vous aimez et pratiquer le paintball, nous vous invitons dès lors à utiliser notre 
-    site. 
-  </p>
-
-  <p class="intro">
-    Notre site internet, possède plusieurs fonctionnalité, la première est la possibilitée pour vous de
-    recherche un lieux ou vous pouvez pratiquer le paintball. Vous pouvez par exemple cherchez le lieux le plus
-    proche, pour cela il vous suffit de vous rendre sur la page Recherche. Pour se qui est est des
-    fonctionnalités de suivie de votre progression, il vous faut créer un compte. Pour cela rendez-vous sur la
-    page connexion et appyez sur s'inscrire. Il vous suffira alors de rentrer les informations demandé. Une
-    fois connecter de nouvelles pages (s'offrirons à vous) vous serons accessible. Premièrement, il vous sera possible d'inscrire
-    les ou l'équipe avec lasqu'elle  vous jouer, qui par las suite vous sera utile au moment de rentrer de nouvelle information sur
-    un nouveau matches. La dexième interaction possible est la possibilité de rentrer les informations de vos
-    parties de paintBall. Puis efin vous pourez voir votre évolution au fils du temps, ces statististique seront
-    créer à partir des informations rentrer par vos soin au préalable. Ces statistiques pourra ainsi vous informer et vous
-    permettre de voir les points a améliorer pour vos prochain matches.
-  </p>
-
-</section>
+<div class="col-12 col-lg-4">
+<div class="card maCard" id="card1">
+  <div class="imgCard">
+  <img class="card-img-top" src="img/icon-force.png" alt="Card image cap">
+  </div>
+  <div class="card-body">
+  <h5>Augmente la force et l'endurance</h5>
+    <p class="card-text"> Ramper, courir,plonger,esquiiver... Le paintball est un véritable concentré de plusieurs sports.
+      D'une manière générale, au sortir d'une partie, les joueurs sont réellement exténué.
+      En outre, cette activité tonifie le corps sans même que l'on s'en rende compte.</p>
+  </div>
+</div>
 </div>
 
-<!-- Affichage des cartes des bienfais du Paintball -->
-<div class='row test' id='cardes'>
+<div class="col-12 col-lg-4">
+<div class="card maCard" id="card2">
+<div id="imgCard2" class="imgCard">
+  <img class="card-img-top" src="img/icon-confiance.png" alt="Card image cap">
+</div>
+  <h5>Gain de confiance en soi</h5>
+  <div class="card-body">
+    <p class="card-text">Vous êtes plutôt timide dans la vie? Affirmez-vous lors des parties de paintball!
+      Souvent, cette activitépermet à des personnes plutôt réservées de prendre un leadership et 
+      d'accroître leur confiance en elle.
 
-  <div class="col-12 col-lg-4" id="titi">
-    <div class="card maCard" id="card1">
-      <figure class="imgCard">
-        <img class="card-img-top" src="img/icon-force.png" alt="Card image cap">
-      </figure>
-    <div class="card-body">
-      <h5 class="titleCard">Augmente la force et l'endurance</h5>
-      <p class="card-text texteCard"> Ramper, courir,plonger,esquiiver... Le paintball est un véritable concentré de plusieurs sports.
-        D'une manière générale, au sortir d'une partie, les joueurs sont réellement exténué.
-        En outre, cette activité tonifie le corps sans même que l'on s'en rende compte.
-      </p>
-    </div>
-    </div>
+    </p>
   </div>
+</div>
+</div>
 
-  <div class="col-12 col-lg-4">
-    <div class="card maCard">
-      <figure class="imgCard ">
-        <img class="card-img-top" src="img/icon-confiance.png" alt="Card image cap">
-      </figure>
-      <div class="card-body">
-        <h5 class="titleCard">Gain de confiance en soi</h5>
-        <p class="card-text">Vous êtes plutôt timide dans la vie? Affirmez-vous lors des parties de paintball!
-          Souvent, cette activitépermet à des personnes plutôt réservées de prendre un leadership et 
-          d'accroître leur confiance en elle.
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-12 col-lg-4">
-    <div class="card maCard" id="card3" >
-      <figure class="imgCard">
-        <img class="card-img-top" src="img/icon-poids.png" alt="Card image cap">
-      </figure>
-      <div class="card-body">
-        <h5 class="titleCard"> Permet la perte de poids </h5>
-        <p class="card-text ">Si vous souhaitez perdre du poids, le paintball s'avère être une 
-          alternative tout à fait crédible et sérieuse. Du fait de l'exercice intense, vous
-          brûlez des calories et d'améliorez vos cycles de sommeil. Grâce à ce sport, vous
-          réduisez le risque de maladies cardiaques, pression artérielle et de dépression.
-        </p>
-      </div>
-    </div>
+<div class="col-12 col-lg-4">
+<div class="card maCard" id="card3" >
+  <div class="imgCard" id="imgCardCible">
+  <img class="card-img-top" src="img/icon-poids.png" alt="Card image cap">
+</div>
+  <h5> Permet la perte de poids </h5>
+  <div class="card-body">
+    <p class="card-text textCard">Si vous souhaitez perdre du poids, le paintball s'avère être une 
+      alternative tout à fait crédible et sérieuse. Du fait de l'exercice intense, vous
+      brûlez des calories et d'améliorez vos cycles de sommeil. Grâce à ce sport, vous
+      réduisez le risque de maladies cardiaques, pression artérielle et de dépression.
+      
+    </p>
   </div>
 
 </div>
+</div>
+</div>
+-->
 
+        <!-------------------------------------->
+        <div>
+          <p style="text-align: center;"> 
+              La paintball est une activité sportive ou de loisir opposant deux équipes dont les joueurs
+              sont équipés de masques de protection et de lanceur (ou marqueurs). Les lanceurs propulsent
+              par air comprimé au CO2 des billes de peinture de calibre 0.68 constituées de capsules médicales
+              renfermant une gélatine colorée, biodégradable.
+              Ces deux équipes  soppose l'une contre l'autre sur différents terrains délimités par des filets 
+              de protection.
+              Le but est de réussir les différentes missions données par l'encadrant. La partie est gagnée lorque
+              l'objectif est atteint ou lorsque les joeurs d'une équipe sont totalement éliminés par l'équipe
+              adverses au moyen de leurs lanceurs.
+          </p>
+         </div>
+          <!--
+          <h2>Clubs aux alentours</h2>
+          <div id="map">
+              <script>
+                  var map = L.map('map').setView([48.4990487,2.3663295], 12.5);
 
+                  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                  }).addTo(map);
 
+                  L.marker([48.4990487,2.3663295]).addTo(map)
+                      .bindPopup('Paintball SelectPark.<br>Rue de Boigny, 91590 Baulne, France.')
+                      .openPopup();
+              </script>
+          </div>
+          -->
+          <h2>Calcul itinéraire</h2>
+          <script>
+            function go() {
+          map = L.map("map").setView([47, 2.424], 7);
+          var lyrMaps = L.geoportalLayer.WMTS({
+              layer: "GEOGRAPHICALGRIDSYSTEMS.MAPS",
+          }, { // leafletParams
+              opacity: 0.7
+          });
+          map.addLayer(lyrMaps) ;
+          var routeCtrl = L.geoportalControl.Route({
+          });
+        map.addControl(routeCtrl);
+
+      }
+
+      Gp.Services.getConfig({
+          apiKey : "53p4y6s38oqms2vkep7c0p0v",
+          onSuccess : go
+      }) ;
+
+      var infoDiv= document.getElementById("info") ;
+      infoDiv.innerHTML= "<p> Extension Leaflet version "+Gp.leafletExtVersion+" ("+Gp.leafletExtDate+")</p>" ;
+
+          </script>
+          <div id="map"></div>
+          <div id="info"></div>      
+        
 <?php
-     printf("<p> Nous avons une session en cours: " . hasSession() . "</p>");
     include_once 'include/footeur.inc.php';
 ?>
