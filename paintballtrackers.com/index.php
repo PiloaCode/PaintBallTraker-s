@@ -200,61 +200,12 @@
     adverses au moyen de leurs lanceurs.
   </p>
 </div>
-<<<<<<< HEAD
 
 <h2>Votre position</h2>
 <div id="carte"></div>
 <!-- leafletjs JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-=======
-  <!--
-  <h2>Clubs aux alentours</h2>
-  <div id="map">
-      <script>
-          var map = L.map('map').setView([48.4990487,2.3663295], 12.5);
-
-          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-              attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          }).addTo(map);
-
-          L.marker([48.4990487,2.3663295]).addTo(map)
-              .bindPopup('Paintball SelectPark.<br>Rue de Boigny, 91590 Baulne, France.')
-              .openPopup();
-      </script>
-  </div>
-  -->
-  <h2>Calcul itinéraire</h2>
-  <!--
-  <script>
-    function go() {
-  map = L.map("map").setView([47, 2.424], 7);
-  var lyrMaps = L.geoportalLayer.WMTS({
-      layer: "GEOGRAPHICALGRIDSYSTEMS.MAPS",
-  }, { // leafletParams
-      opacity: 0.7
-  });
-  map.addLayer(lyrMaps) ;
-  var routeCtrl = L.geoportalControl.Route({
-  });
-map.addControl(routeCtrl);
-
-}
-
-Gp.Services.getConfig({
-  apiKey : "53p4y6s38oqms2vkep7c0p0v",
-  onSuccess : go
-}) ;
-
-var infoDiv= document.getElementById("info") ;
-infoDiv.innerHTML= "<p> Extension Leaflet version "+Gp.leafletExtVersion+" ("+Gp.leafletExtDate+")</p>" ;
-
-  </script>
-  <div id="map"></div>
-  <div id="info"></div>      
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
->>>>>>> 83f22cf05a7d23688d0c2bbbf823efb5b2f1f150
 <script type="text/javascript" src="script.js"></script>
 -->
 <script>
