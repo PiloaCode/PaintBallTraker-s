@@ -49,10 +49,10 @@ p{
     font-size: 10px;
 }
 */
-#map {
+#carte {
   padding: 5px;
   width: 60%;
-  height: 500px;
+  height: 40vh;
   box-shadow: 0 0 10px #999;
   border-radius: 10px;
   margin:auto;
