@@ -2,8 +2,7 @@
     $title = "PaintBallTrakers";
     $description = "Page d'accueil du site.";
     $h1 = "Paintball Trackers";
-    include_once 'include/header.inc.php';
-
+    include_once 'include/header.inc.php';  
 ?>
 
 <!--Elements de ma page d'accueil--> 
@@ -98,7 +97,21 @@
           </div>
         </div> 
       </div>
-    </div>     
+    </div>
+<?php
+  $url = "http://www.mapquestapi.com/geocoding/v1/address?key=JNpXOp83Sf56uozkto3vj0Bp39GEjN7c&location=Paris";
+ 
+  $json = file_get_contents($url);
+  $obj = json_decode($json);
+  $res = $obj->{'results'};
+  $id = $res[0]->{'providedLocation'};
+  $resid = $id->{'location'};  
+    echo "<h2> Voici ma ville  :".$resid."</h2>";
+  
+  //echo'<h2>'.$url.'</h2>';
+  //echo'<h2>'.$json.'</h2>';
+  
+?>     
     <h2>Paintball Compétition</h2>  
     <div style="text-align: center;">
     <img src="img/home_caroussel_img1.png" style="border-radius: 30px;">
@@ -204,6 +217,7 @@
   </div>
   -->
   <h2>Calcul itinéraire</h2>
+  <!--
   <script>
     function go() {
   map = L.map("map").setView([47, 2.424], 7);
@@ -232,9 +246,20 @@ infoDiv.innerHTML= "<p> Extension Leaflet version "+Gp.leafletExtVersion+" ("+Gp
   <div id="info"></div>      
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
-
 <script type="text/javascript" src="script.js"></script>
+-->
+<script>
 
+
+L.mapquest.key = 'KEY';
+
+// 'map' refers to a <div> element with the ID map
+L.mapquest.map('map', {
+  center: [37.7749, -122.4194],
+  layers: L.mapquest.tileLayer('map'),
+  zoom: 12
+});
+</script>
 <?php
     include_once 'include/footer.inc.php';
 ?>

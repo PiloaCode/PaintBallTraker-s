@@ -432,15 +432,13 @@ h1,.contact {
   .pCard_card_LB {
     margin: auto !important;
   }
-  .row {
-    margin-right: 0px !important;
-    margin-left: 0px !important;
-  }
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
+  margin-right: 0px !important;
+  margin-left: 0px !important;
 }
 
 /*Card BattleRoyale*/

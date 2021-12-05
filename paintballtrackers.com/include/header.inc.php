@@ -25,7 +25,9 @@
     <!--Extension Géoportail pour Leaflet-->
     <link rel="stylesheet" href="plugins/GpPluginLeaflet-2.1.9/GpPluginLeaflet-map.css"/>
     <script src="plugins/GpPluginLeaflet-2.1.9/GpPluginLeaflet-map.js" data-key="53p4y6s38oqms2vkep7c0p0v"></script>
-
+    <!--Extension MapQuest-->
+    <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
     <script>
 
 </script>
