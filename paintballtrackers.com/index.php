@@ -2,8 +2,7 @@
     $title = "PaintBallTrakers";
     $description = "Page d'accueil du site.";
     $h1 = "Paintball Trackers";
-    include_once 'include/header.inc.php';
-
+    include_once 'include/header.inc.php';  
 ?>
 
 <!--Elements de ma page d'accueil--> 
@@ -98,7 +97,21 @@
           </div>
         </div> 
       </div>
-    </div>     
+    </div>
+<?php
+  $url = "http://www.mapquestapi.com/geocoding/v1/address?key=JNpXOp83Sf56uozkto3vj0Bp39GEjN7c&location=Paris";
+ 
+  $json = file_get_contents($url);
+  $obj = json_decode($json);
+  $res = $obj->{'results'};
+  $id = $res[0]->{'providedLocation'};
+  $resid = $id->{'location'};  
+    echo "<h2> Voici ma ville  :".$resid."</h2>";
+  
+  //echo'<h2>'.$url.'</h2>';
+  //echo'<h2>'.$json.'</h2>';
+  
+?>     
     <h2>Paintball Compétition</h2>  
     <div style="text-align: center;">
     <img src="img/home_caroussel_img1.png" style="border-radius: 30px;">
@@ -187,14 +200,75 @@
     adverses au moyen de leurs lanceurs.
   </p>
 </div>
+<<<<<<< HEAD
 
 <h2>Votre position</h2>
 <div id="carte"></div>
 <!-- leafletjs JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script type="text/javascript" src="script.js"></script>
+=======
+  <!--
+  <h2>Clubs aux alentours</h2>
+  <div id="map">
+      <script>
+          var map = L.map('map').setView([48.4990487,2.3663295], 12.5);
 
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+              attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          }).addTo(map);
+
+          L.marker([48.4990487,2.3663295]).addTo(map)
+              .bindPopup('Paintball SelectPark.<br>Rue de Boigny, 91590 Baulne, France.')
+              .openPopup();
+      </script>
+  </div>
+  -->
+  <h2>Calcul itinéraire</h2>
+  <!--
+  <script>
+    function go() {
+  map = L.map("map").setView([47, 2.424], 7);
+  var lyrMaps = L.geoportalLayer.WMTS({
+      layer: "GEOGRAPHICALGRIDSYSTEMS.MAPS",
+  }, { // leafletParams
+      opacity: 0.7
+  });
+  map.addLayer(lyrMaps) ;
+  var routeCtrl = L.geoportalControl.Route({
+  });
+map.addControl(routeCtrl);
+
+}
+
+Gp.Services.getConfig({
+  apiKey : "53p4y6s38oqms2vkep7c0p0v",
+  onSuccess : go
+}) ;
+
+var infoDiv= document.getElementById("info") ;
+infoDiv.innerHTML= "<p> Extension Leaflet version "+Gp.leafletExtVersion+" ("+Gp.leafletExtDate+")</p>" ;
+
+  </script>
+  <div id="map"></div>
+  <div id="info"></div>      
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+>>>>>>> 83f22cf05a7d23688d0c2bbbf823efb5b2f1f150
+<script type="text/javascript" src="script.js"></script>
+-->
+<script>
+
+
+L.mapquest.key = 'KEY';
+
+// 'map' refers to a <div> element with the ID map
+L.mapquest.map('map', {
+  center: [37.7749, -122.4194],
+  layers: L.mapquest.tileLayer('map'),
+  zoom: 12
+});
+</script>
 <?php
     include_once 'include/footer.inc.php';
 ?>

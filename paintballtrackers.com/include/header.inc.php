@@ -26,11 +26,18 @@
     <!--Extension Géoportail pour Leaflet--
     <link rel="stylesheet" href="plugins/GpPluginLeaflet-2.1.9/GpPluginLeaflet-map.css"/>
     <script src="plugins/GpPluginLeaflet-2.1.9/GpPluginLeaflet-map.js" data-key="53p4y6s38oqms2vkep7c0p0v"></script>
+<<<<<<< HEAD
 
     <!--Ma feuille de style-->
     <link rel="stylesheet" href="./style.css" />
  <!-- leafletjs CSS -->
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" />
+=======
+    <!--Extension MapQuest-->
+    <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
+    <script>
+>>>>>>> 83f22cf05a7d23688d0c2bbbf823efb5b2f1f150
 
 </head>  
 <body>    

@@ -73,3 +73,4 @@ function handleLocation(position) {
 function handleLocationError(msg) {
     alert("Erreur lors de la géolocalisation");
 }
+
