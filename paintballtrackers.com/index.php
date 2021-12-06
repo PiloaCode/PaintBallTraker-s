@@ -98,24 +98,70 @@
         </div> 
       </div>
     </div>
-<?php
-  $url = "http://www.mapquestapi.com/geocoding/v1/address?key=JNpXOp83Sf56uozkto3vj0Bp39GEjN7c&location=Paris";
- 
-  $json = file_get_contents($url);
-  $obj = json_decode($json);
-  $res = $obj->{'results'};
-  $id = $res[0]->{'providedLocation'};
-  $resid = $id->{'location'};  
-    echo "<h2> Voici ma ville  :".$resid."</h2>";
-  
-  //echo'<h2>'.$url.'</h2>';
-  //echo'<h2>'.$json.'</h2>';
-  
-?>     
+     
     <h2>Paintball Compétition</h2>  
-    <div style="text-align: center;">
-    <img src="img/home_caroussel_img1.png" style="border-radius: 30px;">
+    <div class="slider">
+      <div class="slide active">
+        <img src="img/home_caroussel_img1.png" alt="">
+        <!--
+        <div class="info">
+          <h2></h2>
+          <p></p>
+        </div>
+        -->
+      </div>
+      <div class="slide">
+        <img src="img/home_caroussel_img2.png" alt="">
+        <!--
+        <div class="info">
+          <h2></h2>
+          <p></p>
+        </div>
+        -->
+      </div>
+      <div class="slide">
+        <img src="img/home_caroussel_img3.png" alt="">
+        <!--
+        <div class="info">
+          <h2></h2>
+          <p></p>
+        </div>
+        -->
+      </div>
+      <div class="slide">
+        <img src="img/home_caroussel_img4.png" alt="">
+        <!--
+        <div class="info">
+          <h2></h2>
+          <p></p>
+        </div>
+        -->
+      </div>
+      <div class="slide">
+        <img src="img/home_caroussel_img5.png" alt="">
+        <!--
+        <div class="info">
+          <h2></h2>
+          <p</p>
+        </div>
+        -->
+      </div>
+      <div class="navigation">
+        <i class="fas fa-chevron-left prev-btn"></i>
+        <i class="fas fa-chevron-right next-btn"></i>
+      </div>
+      <div class="navigation-visibility">
+        <div class="slide-icon active"></div>
+        <div class="slide-icon"></div>
+        <div class="slide-icon"></div>
+        <div class="slide-icon"></div>
+        <div class="slide-icon"></div>
+      </div>
     </div>
+    <p class="intro"> 
+    Chaque équipe est composée de 5 joueurs, auxquels s'ajoutent 2 remplaçants maximum, 1 coach, avec des marqueurs semi-automatiques assistés limités à 10 billes par seconde. Le format de jeu est de type « long », il s'agit dans une limite de temps (15 minutes) de jouer le maximum de parties, celles-ci se terminant lorsqu'un joueur a réussi à toucher la base adverse, la première équipe totalisant 5 points d'écart ou celle en tête à la fin du temps gagne.
+    </p>
+  
     <h2>Que peut vous apporter notre site?</h2>
     <!-- textes explicatifs du site -->
     <p class="intro"> 
