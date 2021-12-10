@@ -72,12 +72,15 @@
                     <select name='type_gun'>
                         <option value='mecanique'> mecanique </option>
                         <option value='electronique'> electronique </option>
-                    </select>
+                    </select>" . choixEquipe($_SESSION['login']) . "
+
+                    <input type='submit'    />
                 </form>
+                </div >
         ";
     return $form;
     }
 
-    $rep = addMatch() . choixEquipe($_SESSION['login']) . "</div >";
+    $rep = addMatch();
     echo $rep;
-?>
+?>²
