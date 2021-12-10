@@ -1,6 +1,8 @@
 <?php
+    //element a remplire pour le head
     $title="inscription";
     $description = "Page permettant la création de conpte.";
+    
     include_once 'include/head.inc.php';
     include_once 'include/function.inc.php'
 ?>
@@ -10,8 +12,11 @@
         Salut voici un test JS.
 
     </p>
+    
     <article class="col12" >
+        
         <h2> Inscription </h2>
+        
         <form method="post" id="form">
             <label for="nomJoueur" class="row"> Nom </label>
             <input type="text" name="nom" id="nom" required  minlength="5" class="row"    />
@@ -35,8 +40,5 @@
 <script src="Ajax.js"></script>
 
 <?php
-    //inscription();
-    //inscription();
-    //valideMdp('Vincent4', "Piloa");
     include_once 'include/footeur.inc.php';
 ?>

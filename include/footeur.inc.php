@@ -1,11 +1,13 @@
 <footer container-fluide >
-    <div class="row"> 
+    
+    <aside class="row"> 
         <p> 
             <strong>&copy;PaintBallTraker-s</strong>
             <strong>Auteur: Mosquera Alexis et Girard Vincent</strong>
             <strong> Version du 08/10/2021 </strong>
         </p>
-    </div>
+    </aside>
+    
     <?php
          echo password_hash("Vincent4", PASSWORD_DEFAULT);
     ?>

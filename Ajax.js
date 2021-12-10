@@ -10,31 +10,16 @@ var cMdp = $('input[name=cMdp]')
 //recuperation buton html de la pages Matchs
 var addMatch = $('#addMatch');
 var printMatch = $('#printMatch');
-var addMEquipe = $('#addMEquipe');
-//recupe div a changer
+var addEquipe = $('#addMEquipe');
+var addMembre = $('#addMembre');
+
+//recupe des div a changer
 var result = $('#result');
+var formMatch = $('#formMatch');
 
 var dataLogin = 'login=' + login.val();
 
 var dataMdp = {mdp: mdp.val(), cMdp: cMdp.val()};
-
-/*input.keyup(function (e) { 
-    //alert("Le texte change");
-    //$('#cMdp').val().alert()
-   // $('#mdp').val().alert()
-
-    if( $('#mdp').val() != $('#cMdp').val())
-    {
-        e.preventDefault();
-        $("form").after("<p>c pas les même</p>");
-
-    }
-    else
-    {
-        alert("Salut");
-    }
-    
-});*/
 
 login.keyup(function (e) { $.ajax({ 
     url: "ajax/AjaxLogin.inc.php",
@@ -78,6 +63,10 @@ cMdp.keyup(function(e){
 
 printMatch.click(function (e) { 
     e.preventDefault();
+    $('#formMatch').attr('hidden', '');
+    $('#formEquipe').attr('hidden', '');
+    $('#formMenbre').attr('hidden', '');
+
     $.ajax({
         type: "get",
         url: "ajax/Matchs.ajax.php",
@@ -89,16 +78,28 @@ printMatch.click(function (e) {
     
 });
 
-addMatch.click(function (e) { 
-    e.preventDefault();
-
-    $.ajax({
-        type: "get",
-        url: "ajax/addMatch.ajax.php",
-        success: function (response) 
-        {
-            result.html(response);
-        }
-    });
-    
+addMatch.click(function (e) 
+{    
+    $('#formMatch').removeAttr('hidden');
+    $('#formEquipe').attr('hidden', '');
+    $('#formMenbre').attr('hidden', '');
+    result.html('');
 });
+
+addEquipe.click(function (e)
+{
+    $('#formEquipe').removeAttr('hidden');
+    $('#formMatch').attr('hidden', '');
+    $('#formMenbre').attr('hidden', '');
+    result.html('');
+});
+
+addMembre.click(function(e)
+{
+    $('#formMenbre').removeAttr('hidden');
+    $('#formMatch').attr('hidden', '');
+    $('#formEquipe').attr('hidden', '');
+    result.html('');
+
+});
+

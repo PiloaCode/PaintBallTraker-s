@@ -8,8 +8,30 @@ main
     height: 100vh;
 }
 
+h2
+{
+  margin-top: 3%;
+}
+
 .buttonMatchs
 {
+}
+
+.error404 p
+{
+    padding: 4%;
+    text-indent:2%; 
+    font-size: 130%;
+    text-align: left;
+}
+
+#img404
+{
+  position: absolute;
+  position: fixed;
+  top: 65%;
+  left: 50%;
+  transform: translate(-45%);
 }
 
 .btn-primary

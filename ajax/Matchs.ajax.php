@@ -21,6 +21,7 @@
         $conn = OpenBD();
         $request = $conn->query("SELECT * FROM Equipe WHERE id_equipe = '" . $id ."'");
         $res = $request->fetch_all(MYSQLI_ASSOC);
+        
         $conn->close();
     return $res;
     }
@@ -37,6 +38,7 @@
 
     function afficheTabMatch($login)
     {
+        $i = 0;
         
         $res = tableMatchs($login);
 

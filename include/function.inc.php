@@ -6,6 +6,11 @@ use PHPMailer\PHPMailer\PHPMailer;
     include_once 'include/PHPMailer-master/src/PHPMailer.php';
     include_once 'include/PHPMailer-master/src/SMTP.php';
 
+    /**
+     * Fonction permettant la connexion a la BD
+     * @return mysqli
+     */
+
     function openBD(): mysqli
     {
         include_once 'bd.con.php';
@@ -21,6 +26,14 @@ use PHPMailer\PHPMailer\PHPMailer;
     return $conn;
     }
 
+    /**
+     * Fonction permettant de vérifier si le mot de passe est valide
+     * par rapport au login.
+     * 
+     * @param string $login le login de l'utilisateur
+     * @param string $mdp le mot de passe rentrer par l'utilisateur
+     * @return boolean true si le mots de passe est bon false sinon
+     */
     function valideMdp(string $mdp, string $login): bool
     {
         $conn = openBD();
@@ -37,6 +50,10 @@ use PHPMailer\PHPMailer\PHPMailer;
     return false;
     }
 
+    /**
+     * Fonction qui permet la connexion au service de mail
+     * @return PHPMailer un objet permettant l'envoie des mails
+     */
     function connectMail()
     {
         $mail = new PHPMailer();
@@ -127,15 +144,16 @@ use PHPMailer\PHPMailer\PHPMailer;
         $conn->close();
     }
 
-    function adMatch($idMatch, $terrain, $equipeAllie, $equipeAdv, $dureeMatch, $nbrEliminUser, $nombreLoader, $Duree_ingame, $choixMatch, $typeGun)
+    function adMatch($terrain, $equipeAllie, $equipeAdv, $dureeMatch, $nbrEliminUser, $nombreLoader, $Duree_ingame, $choixMatch, $typeGun)
     {
+        $idMatch = "";
         $conn = openBD();
-        $request = "INSERT INTO Matchs (id_joueur,id_equipe) VALUE (?,?)";
+        $request = "INSERT INTO Matchs (id_joueur,terrain,equipe_allie,equipe_adv,duree_match,nbr_elimin_user,nombre_loader,duree_ingame,choix_match,type_gun) VALUE (,?,?,?,?,?,?,?,?,?,?)";
         $query = $conn->prepare($request);
 
         if($query)
         {
-            $query->bind_param('ss', $$idJoueur, $$idEquipe);
+            $query->bind_param('ssss', $$idJoueur, $$idEquipe);
             $query->execute();
         }
 
@@ -192,6 +210,12 @@ use PHPMailer\PHPMailer\PHPMailer;
         $conn->close();
     }
 
+    /**
+     * Fonction qui permet d'envoyer le mail de confirmation de l'inscription.
+     * @param string $adresse, l'adresse a qui envoyer le mail
+     * @param string $login, le login de l'utilisateur
+     * @param string $lien, le lien de confirmation à envoyer
+     */
     function confirmMail(String $adresse,  String $login, String $lien)
     {   
         //creation du mail
@@ -219,6 +243,10 @@ use PHPMailer\PHPMailer\PHPMailer;
       }
     }
 
+    /**
+     * Fonction qui permet de rendre actif le compte si l'utilisateur click
+     * sur le lien envoyée par mail.
+     */
     function validRegistation()
     {
         $id_lien = $_GET['id'];
@@ -251,6 +279,11 @@ use PHPMailer\PHPMailer\PHPMailer;
         $conn->close();
     }
     
+    /**
+     * Fonction qui permet de vérifier si le lien de confirmation du compte est toujours actif
+     * @param string $id_lien l'id du lien selon l'utilisateur
+     * @return bool true si le true si le lien est toujour valide false sinon
+     */
     function verifDate(String $id_lien): bool
     {
         //recuperation de la date d'inscription de l'utilisateur 
@@ -275,6 +308,7 @@ use PHPMailer\PHPMailer\PHPMailer;
     return false;
     }
 
+
     function idUnique(String $champs)
     {
         $conn = openBD();
@@ -287,6 +321,16 @@ use PHPMailer\PHPMailer\PHPMailer;
     return $id;
     }
 
+    /**
+     * Fonction qui permet d'ajouter un compte à la base de donnée.
+     * @param string $mdp, le mots de passe du nouveau compte
+     * @param string $nom, le nom de l'utilisateur
+     * @param string $date, la date de naissance de l'utilisateur
+     * @param string $login, le login
+     * @param string $prenom, le prenom de l'utilisateur
+     * @param string $adresse, l'adresse mail de l'utilisateur
+     * @param string $id_lien, l'id a mettre dans le lien pour confirmer le mail
+     */
     function addCompteBD($mdp, $nom, $date,$login,$prenom, $adresse, $id_lien)
     {
         //formatage des données
@@ -336,7 +380,12 @@ use PHPMailer\PHPMailer\PHPMailer;
         $conn->close();
     }
 
-    function verifLogin($login): bool
+    /**
+     * Fonction qui permet de vérifier si un login existe déja dans la base de donnée.
+     * @param string
+     * @return bool retourn true si il n'existe pas sinon false
+     */
+    function verifLogin(string $login): bool
     {
         $conn = openBD();
         $query = $conn->query("SELECT * FROM Utilisateur WHERE pseudo='" . $login ."';");
@@ -349,6 +398,10 @@ use PHPMailer\PHPMailer\PHPMailer;
     return 0;
     }
 
+    /**
+     * Fonction qui permet a l'utilisateur de se créer un compte.
+     * @return string $message, message d'erreur ou de de confirmation
+     */
     function inscription():string
     {   
         $erreur = "";
@@ -435,6 +488,11 @@ use PHPMailer\PHPMailer\PHPMailer;
     return $message;
     }
 
+    /**
+     * Fonction qui permet de vérifier si le compte de l'utilisateur est actif.
+     * @param $login, le login de l'utilisateur
+     * @return boolean, revoie true si le compte est actif false sinon
+     */
     function isActif(string $login): bool
     {
         $conn = openBD();
@@ -459,6 +517,10 @@ use PHPMailer\PHPMailer\PHPMailer;
     return false;
     }
 
+    /**
+     * Fonction qui permet permet la connection sur le site si le mot de passe est bon,
+     * et que le compt est actif.
+     */
     function conect()
     {
        
@@ -472,19 +534,20 @@ use PHPMailer\PHPMailer\PHPMailer;
             }
     }
 
-    function hasSession(): bool
+    function choixEquipe($login)
     {
-        if(session_status() == PHP_SESSION_ACTIVE)
+        $equipes = tableEquipe($login);
+
+        $choix =  "<select name='equipe'>";
+
+        foreach($equipes as $equipe)
         {
-            return true;
+            $choix .=  "\n\t\t<option value=' ". $equipe['id_equipe'] ."'>" . $equipe['nom_equipe'] . "</option>";
         }
-    return false;
+
+        $choix .= "\n\t</select>";
+    return $choix;
     }
-    function testAffiche($login)
-    {
-        $conn = openBD();
-        $query = $conn->query("SELECT * FROM Matchs;");
-        $matchs = $query->fetch_row();
-        $conn->close();
-    }
+
+
 ?>

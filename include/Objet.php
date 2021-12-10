@@ -334,4 +334,65 @@ class Capture_drapeau
     }
 }
 
+class InfoUser
+{
+    private $pseudo;
+    private $adressMail;
+    private $dateNaissance;
+    private $nom;
+    private $prenom;
+
+    public function __construct($login)
+    {
+        //recupère les informations de l'utilisateur dans la bd
+        $conn = openBD();
+        $request = "SELECT pseudo,adresse_mail,date_naissance,nom_joueur,prenom_joueur FROM Utilisateur u, Joueur j WHERE u.pseudo = 'Vincent' AND j.id_joueur = u.id_joueur;";
+        $query = $conn->query($request);
+        $utilisateur = $query->fetch_all(MYSQLI_ASSOC);
+        $conn->close();
+
+        //stock les information de la BD dans l'objet
+        $this->pseudo = $utilisateur[0]['pseudo'];
+        $this->adressMail = $utilisateur[0]['adresse_mail'];
+        $this->dateNaissance = $utilisateur[0]['date_naissance'];
+        $this->nom = $utilisateur[0]['nom_joueur'];
+        $this->prenom = $utilisateur[0]['prenom_joueur'];
+    }
+
+    public function test()
+    {
+        $chaine = "";
+
+        $chaine .= "<table>";
+        $chaine .= "<tr>";
+        $chaine .= "<th> pseudo </th>";
+        $chaine .= "<td>" . $this->pseudo . "</td>";
+        $chaine .= "</tr>";
+        
+        $chaine .= "<tr>";
+        $chaine .= "<th> adresse mail </th>";
+        $chaine .= "<td> " . $this->adressMail . " </td>";
+        $chaine .= "</tr> ";
+        
+        $chaine .= "<tr>";
+        $chaine .= "<th> date de naissance </th>";
+        $chaine .= "<td>" . $this->dateNaissance . "</td>";
+        $chaine .= "</tr>";
+        
+        $chaine .= "<tr>";
+        $chaine .= "<th> nom </th>";
+        $chaine .= "<td>" . $this->nom . "</td>";
+        $chaine .= "</tr>";
+
+        $chaine .= "<tr>";
+        $chaine .= "<th> prenom </th>";
+        $chaine .= "<td>" . $this->prenom . "</td>";
+        $chaine .= "</tr>";
+
+        $chaine .= "</table>";
+
+    return $chaine;
+    }
+}
+
 ?>

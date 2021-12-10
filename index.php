@@ -20,6 +20,7 @@
         missions données par l'encadrant. La partie est gagnée lorque l'objectif est atteint ou lorsque 
         les joeurs d'une équipe sont totalement éliminés par l'équipe adverses au moyen de leurs lanceurs.
     </p>
+    
     <h2> Paintball Loisir</h2>
     <div class="row">
       <div class="col-12 col-md-6 col-xl-3">

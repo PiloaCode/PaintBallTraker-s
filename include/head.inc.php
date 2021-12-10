@@ -11,6 +11,7 @@
         echo"<meta name=\"description\" content=\"$description\" />";
     ?>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="keywords" content="PaintBallTrakers, Paintball, Trakers, suivie, progression, sport, jeux, loisir, compétition,"/>
 
 
     <!--Library Bootstrap-->
