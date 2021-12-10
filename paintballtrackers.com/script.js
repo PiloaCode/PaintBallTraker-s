@@ -34,16 +34,16 @@ $(function() {
 $(function() {
   "use strict";
   $(".pCard_add_ctAlexis").click(function() {
-      $(".pCard_card_LB").toggleClass("pCard_on");
-      $(".pCard_add_LB i").toggleClass("fa-minus");
+      $(".pCard_card_ctAlexis").toggleClass("pCard_on");
+      $(".pCard_add_ctAlexis i").toggleClass("fa-minus");
   });
 });
 //Permet d'ouvrir/fermer la card contact Vincent
 $(function() {
   "use strict";
   $(".pCard_add_ctVincent").click(function() {
-      $(".pCard_card_LB").toggleClass("pCard_on");
-      $(".pCard_add_LB i").toggleClass("fa-minus");
+      $(".pCard_card_ctVincent").toggleClass("pCard_on");
+      $(".pCard_add_ctVincent i").toggleClass("fa-minus");
   });
 });
 

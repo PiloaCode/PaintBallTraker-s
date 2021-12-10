@@ -382,18 +382,6 @@ h1,.contact {
   color: #fff;
 }
 
-/*Carte Info - Page Contact*/
-@media (min-width: 1000px ) {
-  .cardAlexis {
-    margin-right: 3%!important;
-  }
-
-  .cardVincent {
-    margin-left: 3%!important;  
-  }
-}
-
-
 
 .col-12 {
   margin-bottom: 65px;
@@ -418,6 +406,17 @@ h1,.contact {
     margin-left: 10px !important;
   }
 }
+
+/*Responsive card page contact pour tablette, moyen et grand écran*/
+@media (min-width: 768px){
+.pCard_card_ctAlexis {
+    margin-left: auto !important;
+    margin-right: 20px !important;
+  }
+  .pCard_card_ctVincent{
+    margin-left: 20px !important;
+  } 
+}  
 /*Responsive pour grand écran*/
 @media (min-width: 1400px){
   .pCard_card_BR {
@@ -645,7 +644,7 @@ h1,.contact {
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
   transition: 0.5s ease-in-out;
-  background-image: url(img/LesBombes.png);
+  background-image: url(img/profile1.png);
 }
 /*Partie haute Card contact Vincent*/
 .pCard_card_ctVincent .pCard_up {
@@ -659,7 +658,7 @@ h1,.contact {
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
   transition: 0.5s ease-in-out;
-  background-image: url(img/LesBombes.png);
+  background-image: url(img/profile1.png);
 }
 /*Partie haute de la Card une fois activé*/
 .pCard_on .pCard_up {
@@ -705,7 +704,7 @@ h1,.contact {
 /*Texte de la partie haute de la Card contact Alexis*/
 .pCard_card_ctAlexis .pCard_up .pCard_text {
   position: absolute;
-  top: 200px;
+  top: 190px;
   left: 0;
   right: 0;
   color: #f1f7f9;
@@ -714,7 +713,7 @@ h1,.contact {
 /*Texte de la partie haute de la Card contact Vincent*/
 .pCard_card_ctVincent .pCard_up .pCard_text {
   position: absolute;
-  top: 200px;
+  top: 190px;
   left: 0;
   right: 0;
   color: #f1f7f9;
@@ -931,7 +930,7 @@ h1,.contact {
   transition: 0.5 ease-in-out;
 }
 /*Partie basse de la Card contact Alexis*/
-.pCard_card_ctAlexis .pCard_down {
+.pCard_card_ctAlexis .pCard_down_contact {
   background-color: #fff;
   position: absolute;
   bottom: 0px;
@@ -943,7 +942,7 @@ h1,.contact {
   transition: 0.5 ease-in-out;
 }
 /*Partie basse de la Card contact Vincent*/
-.pCard_card_ctVincent .pCard_down {
+.pCard_card_ctVincent .pCard_down_contact {
   background-color: #fff;
   position: absolute;
   bottom: 0px;
@@ -956,6 +955,11 @@ h1,.contact {
 }
 /*Action de la partie basse des Card une fois activé*/
 .pCard_on .pCard_down {
+  height: 100px;
+  box-shadow: 0 0 30px #cfd8dc;
+}
+/*Action de la partie basse des Card une fois activé*/
+.pCard_on .pCard_down_contact {
   height: 100px;
   box-shadow: 0 0 30px #cfd8dc;
 }
@@ -991,23 +995,28 @@ h1,.contact {
   font-size: 18px;
   transition: 0.5s ease-in-out;
 }
-.pCard_card_ctAlexis .pCard_down div {
-  width: 100%;
+.pCard_card_ctAlexis .pCard_down_contact div {
+  width: 33.333%;
+  float: left;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 30px;
   font-size: 18px;
   transition: 0.5s ease-in-out;
 }
-.pCard_card_ctVincent .pCard_down div {
-  width: 100%;
+.pCard_card_ctVincent .pCard_down_contact div {
+  width: 33.333%;
+  float: left;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 30px;
   font-size: 18px;
   transition: 0.5s ease-in-out;
 }
 
 .pCard_on .pCard_down div  {
   margin-top: 40px;
+}
+.pCard_on .pCard_down_contact div  {
+  margin-top: 17px;
 }
 
 .pCard_card_BR .pCard_down div  p:first-of-type {
@@ -1033,12 +1042,12 @@ h1,.contact {
   font-weight: 700;
   margin-bottom: 5px;
 }
-.pCard_card_ctAlexis .pCard_down div  p:first-of-type {
+.pCard_card_ctAlexis .pCard_down_contact div  p:first-of-type {
   color: #334750;
   font-weight: 700;
   margin-bottom: 5px;
 }
-.pCard_card_ctVincent .pCard_down div  p:first-of-type {
+.pCard_card_ctVincent .pCard_down_contact div  p:first-of-type {
   color: #334750;
   font-weight: 700;
   margin-bottom: 5px;
@@ -1130,19 +1139,22 @@ h1,.contact {
   line-height: 44px;
 }
 /*Bouton d'activation Card*/
-.pCard_card_ctAlexis .pCard_up .pCard_add_LB i {
+.pCard_card_ctAlexis .pCard_up .pCard_add_ctAlexis i {
   color: #fff;
   font-size: 25px;
   line-height: 44px;
 }
 /*Bouton d'activation Card*/
-.pCard_card_ctVincent .pCard_up .pCard_add_LB i {
+.pCard_card_ctVincent .pCard_up .pCard_add_ctVincent i {
   color: #fff;
   font-size: 25px;
   line-height: 44px;
 }
 
 .pCard_down p {
+  color: #293133;
+}
+.pCard_down_contact p {
   color: #293133;
 }
 

@@ -1,5 +1,5 @@
 <?php
-    $title = "PaintBallTraker-s";
+    $title = "PaintBall Trakers";
     $description = "Page contact";
     $h1 = "Contact";
     include_once 'include/header.inc.php';
@@ -21,7 +21,7 @@
                 </div>
             </div>
             <!--Partie basse de la carte--> 
-            <div class="pCard_down">
+            <div class="pCard_down_contact">
                 <div>
                     <p>Projets</p>
                     <p>5</p>
@@ -78,7 +78,7 @@
                 </div>
             </div>
             <!--Partie basse de la carte-->         
-            <div class="pCard_down">
+            <div class="pCard_down_contact">
                 <div>
                     <p>Projets</p>
                     <p></p>
