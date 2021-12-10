@@ -30,7 +30,22 @@ $(function() {
         $(".pCard_add_LB i").toggleClass("fa-minus");
     });
 });
-
+//Permet d'ouvrir/fermer la card contact Alexis
+$(function() {
+  "use strict";
+  $(".pCard_add_ctAlexis").click(function() {
+      $(".pCard_card_LB").toggleClass("pCard_on");
+      $(".pCard_add_LB i").toggleClass("fa-minus");
+  });
+});
+//Permet d'ouvrir/fermer la card contact Vincent
+$(function() {
+  "use strict";
+  $(".pCard_add_ctVincent").click(function() {
+      $(".pCard_card_LB").toggleClass("pCard_on");
+      $(".pCard_add_LB i").toggleClass("fa-minus");
+  });
+});
 
 /* Les options pour afficher la France */
 const mapOptions = {
