@@ -98,7 +98,7 @@
         </div> 
       </div>
     </div>
-     
+  
     <h2>Paintball Compétition</h2>  
     <div class="slider">
       <div class="slide active">
