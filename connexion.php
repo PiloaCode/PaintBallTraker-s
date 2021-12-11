@@ -9,6 +9,9 @@
         //retour à l'index si conection réussi
         if(isset($_SESSION['login']))
         {
+
+            // version local du lien: https://localhost/Projet_web/PaintBallTraker-s/index.php
+            // version en ligne du lien: https://piloa.alwaysdata.net/
             header("location:https://localhost/Projet_web/PaintBallTraker-s/index.php");
         }
     }

@@ -341,12 +341,13 @@ class InfoUser
     private $dateNaissance;
     private $nom;
     private $prenom;
+    private $idJoueur;
 
     public function __construct($login)
     {
         //recupère les informations de l'utilisateur dans la bd
         $conn = openBD();
-        $request = "SELECT pseudo,adresse_mail,date_naissance,nom_joueur,prenom_joueur FROM Utilisateur u, Joueur j WHERE u.pseudo = 'Vincent' AND j.id_joueur = u.id_joueur;";
+        $request = "SELECT * FROM Utilisateur u, Joueur j WHERE u.pseudo = '" . $login . "' AND j.id_joueur = u.id_joueur;";
         $query = $conn->query($request);
         $utilisateur = $query->fetch_all(MYSQLI_ASSOC);
         $conn->close();
@@ -357,6 +358,8 @@ class InfoUser
         $this->dateNaissance = $utilisateur[0]['date_naissance'];
         $this->nom = $utilisateur[0]['nom_joueur'];
         $this->prenom = $utilisateur[0]['prenom_joueur'];
+        $this->idJoueur = $utilisateur[0]['id_joueur'];
+
     }
 
     public function test()
@@ -392,6 +395,16 @@ class InfoUser
         $chaine .= "</table>";
 
     return $chaine;
+    }
+
+    function getIdJ()
+    {
+        return $this->idJoueur;
+    }
+    
+    function afficheId()
+    {
+        return "id_joueur rentre est " . $this->idJoueur;
     }
 }
 

@@ -5,6 +5,7 @@ use PHPMailer\PHPMailer\PHPMailer;
     include_once 'include/PHPMailer-master/src/Exception.php';
     include_once 'include/PHPMailer-master/src/PHPMailer.php';
     include_once 'include/PHPMailer-master/src/SMTP.php';
+    include_once 'Objet.php';
 
     /**
      * Fonction permettant la connexion a la BD
@@ -86,13 +87,6 @@ use PHPMailer\PHPMailer\PHPMailer;
     return $mail;
     }
 
-    function tableUser($login)
-    {
-        $conn = openBD();
-        $res = $conn->query("SELECT * FROM Utilisateur WHERE pseudo=\'" . $login . "\';");
-        $conn->close();
-    }
-
     function tableJoueur($id_joueur)
     {
         $conn = openBD();
@@ -117,13 +111,17 @@ use PHPMailer\PHPMailer\PHPMailer;
     function adEquipe($idEquipe,$nomEquipe, $nbJoueur)
     {
         $conn = openBD();
-        $request = "INSERT INTO Equipe (id_equipe,nom_equipe,nb_joueur) VALUE (?,?,?)";
+        $request = "INSERT INTO Equipe (id_equipe,nom_equipe,nb_joueur) VALUES (?,?,?)";
         $query = $conn->prepare($request);
 
         if($query)
         {
             $query->bind_param('sss', $idEquipe, $nomEquipe, $nbJoueur);
             $query->execute();
+        }
+        else
+        {
+            echo "problèmpe de requete";
         }
 
         $conn->close();
@@ -132,12 +130,13 @@ use PHPMailer\PHPMailer\PHPMailer;
     function adJOEquipe($idJoueur, $idEquipe)
     {
         $conn = openBD();
-        $request = "INSERT INTO appartient_a (id_joueur,id_equipe) VALUE (?,?)";
+        $request = "INSERT INTO appartient_a (id_joueur,id_equipe) VALUES (?,?)";
+
         $query = $conn->prepare($request);
 
         if($query)
         {
-            $query->bind_param('ss', $$idJoueur, $$idEquipe);
+            $query->bind_param('ss', $idJoueur, $idEquipe);
             $query->execute();
         }
 
@@ -340,37 +339,17 @@ use PHPMailer\PHPMailer\PHPMailer;
 
         $conn = openBD();
         
-        //chaine de caretere representant la requete numero une
-        $request1 = "INSERT INTO Joueur(nom_joueur, prenom_joueur) VALUES (?,?)";
+        $idJoueur = addJoueur($nom, $prenom);
 
         //chaine de caretere representant la requete numero deux
-        $request2 = "INSERT INTO Utilisateur(pseudo,pasword,adresse_mail,date_naissance,id_joueur,actif,id_lien,date_inscription) VALUES (?,?,?,?,?,0,?,NOW())";
+        $request = "INSERT INTO Utilisateur(pseudo,pasword,adresse_mail,date_naissance,id_joueur,actif,id_lien,date_inscription) VALUES (?,?,?,?,?,0,?,NOW())";
+        $query = $conn->prepare($request);
 
-        printf("\n\n<p>requete 1 est: " . "INSERT INTO Joueur(nom_joueur, prenom_joueur) VALUES (\"" . $nom ."\",\"" . $prenom . "\"); </p>");
-
-        // entre des donnees du joueur
-        $query1 = $conn->prepare($request1);
-        if($query1)
-        {
-            $query1->bind_param('ss',$nom,$prenom);
-            $query1->execute();
-        }
-        else
-        {
-            printf("problème a la requette 1");
-        }
-
-        //reprendre le id joueur pour l'inserer dans le profil de l'utilisateur
-        $query = $conn->query("SELECT * FROM Joueur;");
-        $id_joueur = $query->num_rows;
-
-        $query2 = $conn->prepare($request2);
-
-        if($query2)
+        if($query)
         {
              //entre des donnees de l'utilisateur
-            $query2->bind_param('ssssis',$login,$mdp,$adresse,$date,$id_joueur,$id_lien);
-            $query2->execute();
+            $query->bind_param('ssssis',$login,$mdp,$adresse,$date,$id_joueur,$id_lien);
+            $query->execute();
         }
         else
         {
@@ -530,7 +509,10 @@ use PHPMailer\PHPMailer\PHPMailer;
             if(valideMdp($mdp,$login) && isActif($login))
             {
                 session_start();
+                $user = new InfoUser($login);
+                
                 $_SESSION['login'] = $login;
+                $_SESSION['idJoueur'] = $user->getIdJ();
             }
     }
 
@@ -542,12 +524,67 @@ use PHPMailer\PHPMailer\PHPMailer;
 
         foreach($equipes as $equipe)
         {
-            $choix .=  "\n\t\t<option value=' ". $equipe['id_equipe'] ."'>" . $equipe['nom_equipe'] . "</option>";
+            $choix .=  "\n\t\t<option value='". $equipe['id_equipe'] ."'>" . $equipe['nom_equipe'] . "</option>";
         }
 
         $choix .= "\n\t</select>";
     return $choix;
     }
 
+    function addJoueur($nom,$prenom)
+    {
+        $conn = openBD();
+
+        $request1 = "INSERT INTO Joueur(nom_joueur, prenom_joueur) VALUES (?,?)";
+        $query = $conn->prepare($request1);
+
+        if($query)
+        {
+            $query->bind_param('ss',$nom,$prenom);
+            $query->execute();
+        }
+
+        //reprendre le id joueur pour le retourner
+        $query = $conn->query("SELECT * FROM Joueur;");
+        $id_joueur = $query->num_rows;
+        
+        $conn->close();
+
+    return $id_joueur;
+    }
+
+    function idUniqueEquipe()
+    {
+        $conn = openBD();
+        do
+        {
+            
+            $id = mt_rand(10000000, 99999999);
+            $query = $conn->query("SELECT * FROM Equipe WHERE id_equipe='" . $id ."';");
+        }while($query->num_rows != 0);
+    
+    return $id;
+    }
+
+    function addJInEquipe()
+    {
+        $nom = $_GET['nomJoueur'];
+        $prenom = $_GET['prenomJoueur'];
+        $idEquipe = $_GET['equipe'];
+
+        $idJoueur = addJoueur($nom,$prenom);
+        adJOEquipe($idJoueur, $idEquipe);
+
+    }
+
+    function addEquipe()
+    {
+        $nomEquipe = $_GET['nomEquipe'];
+        $nbJoueur = $_GET['nbJoueur'];
+        $idEquipe = idUniqueEquipe();
+
+        adEquipe($idEquipe,$nomEquipe, $nbJoueur);
+        adJOEquipe($_SESSION['idJoueur'], $idEquipe);
+    }
 
 ?>
