@@ -84,7 +84,7 @@
         </a>
         <span class="tooltip">Tableau de bord</span>
       </li>
-       
+      
       <li>   
       <a href="analyses.php">
         <i class='bx bx-pie-chart-alt-2' ></i>

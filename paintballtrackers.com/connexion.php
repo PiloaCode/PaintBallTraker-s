@@ -29,6 +29,7 @@
         </div>
     </div>
 </form>
+
 <script>
     const loginBtn = document.getElementById('login');
     const signupBtn = document.getElementById('signup');
