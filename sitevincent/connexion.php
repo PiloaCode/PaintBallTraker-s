@@ -22,13 +22,14 @@
 ?>
 <!--Code Alexis formulaire de connexion-->
 <h2>Connexion</h2>
-<form method="post" id="form" >
+<form method="post" id="" >
     <div class="form-structor">
         <div class="signup">
             <h2 class="form-title" id="signup"><span>ou</span>S'inscrire</h2>
             <div class="form-holder">
-                <label for="nomJoueur" class="input"></label>
-                <input type="text" class="input" placeholder="Nom" />
+                <input type="text" name="nom" id="nom" required  minlength="5" class="input" placeholder="Nom" />
+                <input type="text" name="prenom" id="prenom" required  class="input" placeholder="Prénom" />
+                <!--<input type="text" name="login" id="login" class="input" placeholder="Identifiant" required  /> -->
                 <input type="email" class="input" placeholder="Email" />
                 <input type="password" class="input" placeholder="Mot de passe" />
             </div>
@@ -70,6 +71,13 @@
             <input type="submit"    />
         </form>
     </article>
+
+    <?php
+    if(isset($_POST['prenom']))
+    {
+        inscription(); 
+    }
+    ?>
 
 
 <script>
