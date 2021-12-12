@@ -4,7 +4,7 @@
     {
         include_once '../include/bd.con.php';
 
-        $conn = new mysqli( $hostname, $user, $mdp, $BD, $port);
+        $conn = new mysqli( HOST, USER, MDP, BD, PORT);
         if($conn->connect_error)
         {
             die('Erreur : ' .$conn->connect_error);

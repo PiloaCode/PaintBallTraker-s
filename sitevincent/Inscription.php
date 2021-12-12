@@ -35,17 +35,14 @@
             <input type="submit"    />
         </form>
     </article>
-    <?php
-    if(isset($_POST['prenom']))
-    {
-        inscription(); 
-    }
-    ?>
 </body>
-
 
 <script src="Ajax.js"></script>
 
 <?php
+    if(isset($_POST['prenom']))
+    {
+        inscription(); 
+    }
     include_once 'include/footeur.inc.php';
 ?>

@@ -28,7 +28,6 @@ login.keyup(function (e) { $.ajax({
     
     success: function (response) 
     {
-        
         if(response == "True")
         {
             $('input[name=login]').css({"border": "solid", "border-color": "green"});

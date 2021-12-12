@@ -88,6 +88,7 @@
                 </form>
     </article>
 
+
 <script src="Ajax.js"> </script>
 
 <?php
@@ -98,10 +99,12 @@
     if(isset($_GET['nbJoueur']))
     {
         echo 'equipe';
+        addEquipe();
     }
     if(isset($_GET['nomJoueur']))
     {
         echo 'membre';
+        addJInEquipe();
     }
     include_once 'include/footeur.inc.php';
 ?>
