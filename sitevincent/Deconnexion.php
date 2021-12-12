@@ -2,7 +2,7 @@
     session_start();
     session_destroy();
     
-    header("location:https://localhost/Projet_web/PaintBallTraker-s/index.php");
+    header("location:http://localhost/www/PaintBallTraker-s/sitevincent/index.php");
     
     include_once 'include/head.inc.php';
 ?>

@@ -360,7 +360,7 @@ h2
     background-position: 50% 10%;
 
 }
-
+/*
 form
 {
     margin: 1% 45%;
@@ -368,11 +368,11 @@ form
 input
 {
     background-color: #293133; /*E9EDDE   293133*/
-    /*border-radius: 5px;*/
+    /*border-radius: 5px;*//*
     margin-top: 5px;
     border:none;
     color: #E9EDDE;
-}
+}/*
 label
 {
     color: #5BC0EB;
@@ -380,7 +380,7 @@ label
     margin-top: 100px;
     padding-top: 10px;
 }
-
+*/
 #imgConfiance
 {
     background-image: url("images/icon-confiance.png");

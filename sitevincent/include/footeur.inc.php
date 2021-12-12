@@ -9,7 +9,7 @@
     </aside>
     
     <?php
-         echo password_hash("Vincent4", PASSWORD_DEFAULT);
+        echo password_hash("Vincent4", PASSWORD_DEFAULT);
     ?>
 </footer>
 </body>
