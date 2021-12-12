@@ -41,9 +41,8 @@ use PHPMailer\PHPMailer\PHPMailer;
         $query = $conn->query("SELECT pasword FROM Utilisateur WHERE pseudo=\"" .$login ."\";");
         $result = $query->fetch_assoc();
         $conn->close();
-
         $mdpBD = $result['pasword'];
-
+    
         if(password_verify($mdp,$mdpBD) == true)
         {
             return true;
@@ -61,16 +60,16 @@ use PHPMailer\PHPMailer\PHPMailer;
         $mail = new PHPMailer();
         
         $mail->isSMTP();
-        $mail->Port = PORT;
+        $mail->Port = PORT_MAIL;
         $mail->SMTPAuth = 1;
-        $mail->Host = HOST;
+        $mail->Host = HOST_MAIL;
         $mail->Hostname = HOSTNAME;
 
         if($mail->SMTPAuth)
         {
             $mail->SMTPSecure = 'ssl';               //Protocole de sécurisation des échanges avec le SMTP
-            $mail->Username   =  USER;  
-            $mail->Password   =  MDP;
+            $mail->Username   =  USER_MAIL;  
+            $mail->Password   =  MDP_MAIL;
         }
 
          $mail->CharSet = 'UTF-8';
@@ -340,7 +339,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 
         $conn = openBD();
         
-        $idJoueur = addJoueur($nom, $prenom);
+        $id_joueur = addJoueur($nom, $prenom);
 
         //chaine de caretere representant la requete numero deux
         $request = "INSERT INTO Utilisateur(pseudo,pasword,adresse_mail,date_naissance,id_joueur,actif,id_lien,date_inscription) VALUES (?,?,?,?,?,0,?,NOW())";
@@ -391,7 +390,7 @@ use PHPMailer\PHPMailer\PHPMailer;
         $nom = $_POST["nom"];
         $cMdp = $_POST["cMdp"];
         $date = $_POST["date"];
-        $login = $_POST["login"];
+        $login = $_POST["login_i"];
         $prenom = $_POST["prenom"];
         $adresse = $_POST["adresse"];
        

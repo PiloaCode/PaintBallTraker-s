@@ -24,12 +24,11 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <!--Library fontawesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <!--Library Leaflet-->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <!--Extension Géoportail pour Leaflet-->
+    <!-- leafletjs CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" />  
+    <!--Extension Géoportail pour Leaflet
     <link rel="stylesheet" href="plugins/GpPluginLeaflet-2.1.9/GpPluginLeaflet-map.css"/>
-    <script src="plugins/GpPluginLeaflet-2.1.9/GpPluginLeaflet-map.js" data-key="53p4y6s38oqms2vkep7c0p0v"></script>
+    <script src="plugins/GpPluginLeaflet-2.1.9/GpPluginLeaflet-map.js" data-key="53p4y6s38oqms2vkep7c0p0v"></script>-->
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
@@ -207,11 +206,14 @@
     </script>
     
     <!--Hero Image + Titre de la page-->
-    <div class="hero-image">
-      <div class="hero-text">
-          <?php
-              echo"\t<h1>$h1</h1>\n"; 
-          ?>
-      </div>
-    </div>  
+    <?php  
+    if(isset($h1)){
+      echo "<div class='hero-image'>";
+          echo"<div class='hero-text'>";
+            echo"<h1>".$h1."</h1>\n"; 
+          echo"</div>";
+      echo"</div>";
+    }
+      
+    ?>  
     <body>

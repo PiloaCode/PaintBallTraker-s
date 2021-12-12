@@ -1,6 +1,6 @@
 
 var input = $("input[name = cMdp]");
-var login = $('input[name=login]');
+var login = $('input[name=login_i]');
 var mdp = $('input[name=mdp]');
 var add = $("#loginDiv");
 var add = $('#mdpDiv');
@@ -17,7 +17,7 @@ var addMembre = $('#addMembre');
 var result = $('#result');
 var formMatch = $('#formMatch');
 
-var dataLogin = 'login=' + login.val();
+var dataLogin = 'login_i=' + login.val();
 
 var dataMdp = {mdp: mdp.val(), cMdp: cMdp.val()};
 
@@ -30,11 +30,11 @@ login.keyup(function (e) { $.ajax({
     {
         if(response == "True")
         {
-            $('input[name=login]').css({"border": "solid", "border-color": "green"});
+            $('input[name=login_i]').css({"border": "solid", "border-color": "green"});
         }
         else
         {
-            $('input[name=login]').css({"border": "solid", "border-color": "red"});
+            $('input[name=login_i]').css({"border": "solid", "border-color": "red"});
         }
     }
 });
@@ -101,4 +101,6 @@ addMembre.click(function(e)
     result.html('');
 
 });
+
+
 

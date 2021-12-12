@@ -99,24 +99,69 @@
         </div> 
       </div>
     </div>
-<?php
-  $url = "http://www.mapquestapi.com/geocoding/v1/address?key=JNpXOp83Sf56uozkto3vj0Bp39GEjN7c&location=Paris";
- 
-  $json = file_get_contents($url);
-  $obj = json_decode($json);
-  $res = $obj->{'results'};
-  $id = $res[0]->{'providedLocation'};
-  $resid = $id->{'location'};  
-    echo "<h2> Voici ma ville  :".$resid."</h2>";
-  
-  //echo'<h2>'.$url.'</h2>';
-  //echo'<h2>'.$json.'</h2>';
-  
-?>     
     <h2>Paintball Compétition</h2>  
-    <div style="text-align: center;">
-    <img src="img/home_caroussel_img1.png" style="border-radius: 30px;">
+    <div class="slider">
+      <div class="slide active">
+        <img src="img/home_caroussel_img1.png" alt="">
+        <!--
+        <div class="info">
+          <h2></h2>
+          <p></p>
+        </div>
+        -->
+      </div>
+      <div class="slide">
+        <img src="img/home_caroussel_img2.png" alt="">
+        <!--
+        <div class="info">
+          <h2></h2>
+          <p></p>
+        </div>
+        -->
+      </div>
+      <div class="slide">
+        <img src="img/home_caroussel_img3.png" alt="">
+        <!--
+        <div class="info">
+          <h2></h2>
+          <p></p>
+        </div>
+        -->
+      </div>
+      <div class="slide">
+        <img src="img/home_caroussel_img4.png" alt="">
+        <!--
+        <div class="info">
+          <h2></h2>
+          <p></p>
+        </div>
+        -->
+      </div>
+      <div class="slide">
+        <img src="img/home_caroussel_img5.png" alt="">
+        <!--
+        <div class="info">
+          <h2></h2>
+          <p</p>
+        </div>
+        -->
+      </div>
+      <div class="navigation">
+        <i class="fas fa-chevron-left prev-btn"></i>
+        <i class="fas fa-chevron-right next-btn"></i>
+      </div>
+      <div class="navigation-visibility">
+        <div class="slide-icon active"></div>
+        <div class="slide-icon"></div>
+        <div class="slide-icon"></div>
+        <div class="slide-icon"></div>
+        <div class="slide-icon"></div>
+      </div>
     </div>
+    <p class="intro"> 
+    Chaque équipe est composée de 5 joueurs, auxquels s'ajoutent 2 remplaçants maximum, 1 coach, avec des marqueurs semi-automatiques assistés limités à 10 billes par seconde. Le format de jeu est de type « long », il s'agit dans une limite de temps (15 minutes) de jouer le maximum de parties, celles-ci se terminant lorsqu'un joueur a réussi à toucher la base adverse, la première équipe totalisant 5 points d'écart ou celle en tête à la fin du temps gagne.
+    </p>
+
     <h2>Que peut vous apporter notre site?</h2>
     <!-- textes explicatifs du site -->
     <p class="intro"> 
@@ -201,57 +246,15 @@
     adverses au moyen de leurs lanceurs.
   </p>
 </div>
-  <!--
-  <h2>Clubs aux alentours</h2>
-  <div id="map">
-      <script>
-          var map = L.map('map').setView([48.4990487,2.3663295], 12.5);
 
-          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-              attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          }).addTo(map);
-
-          L.marker([48.4990487,2.3663295]).addTo(map)
-              .bindPopup('Paintball SelectPark.<br>Rue de Boigny, 91590 Baulne, France.')
-              .openPopup();
-      </script>
-  </div>
-  -->
-  <h2>Calcul itinéraire</h2>
-  <!--
-  <script>
-    function go() {
-  map = L.map("map").setView([47, 2.424], 7);
-  var lyrMaps = L.geoportalLayer.WMTS({
-      layer: "GEOGRAPHICALGRIDSYSTEMS.MAPS",
-  }, { // leafletParams
-      opacity: 0.7
-  });
-  map.addLayer(lyrMaps) ;
-  var routeCtrl = L.geoportalControl.Route({
-  });
-map.addControl(routeCtrl);
-
-}
-
-Gp.Services.getConfig({
-  apiKey : "53p4y6s38oqms2vkep7c0p0v",
-  onSuccess : go
-}) ;
-
-var infoDiv= document.getElementById("info") ;
-infoDiv.innerHTML= "<p> Extension Leaflet version "+Gp.leafletExtVersion+" ("+Gp.leafletExtDate+")</p>" ;
-
-  </script>
-  <div id="map"></div>
-  <div id="info"></div>      
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+<h2>Votre position</h2>
+<div id="carte"></div>
+<!-- leafletjs JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" src="script.js"></script>
--->
-<script>
 
-
+<!--<script>
 L.mapquest.key = 'KEY';
 
 // 'map' refers to a <div> element with the ID map
@@ -260,7 +263,7 @@ L.mapquest.map('map', {
   layers: L.mapquest.tileLayer('map'),
   zoom: 12
 });
-</script>
+</script>-->
 <?php
     include_once 'include/footeur.inc.php';
 ?>

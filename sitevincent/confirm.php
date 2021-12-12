@@ -6,7 +6,7 @@
 
     include_once 'include/head.inc.php';
     include_once 'include/function.inc.php';
-    include_once 'Ajax.js';
+    
 ?>
 
 <?php

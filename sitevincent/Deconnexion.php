@@ -4,7 +4,7 @@
     
     // version local du lien: https://localhost/Projet_web/PaintBallTraker-s/index.php
     // version en ligne du lien: https://piloa.alwaysdata.net/
-    header("location:https://piloa.alwaysdata.net/");
+    header("location:https://localhost/www/PaintBallTraker-s/sitevincent/index.php");
     
     include_once 'include/head.inc.php';
 ?>
