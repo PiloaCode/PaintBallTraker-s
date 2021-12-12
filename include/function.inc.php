@@ -57,19 +57,20 @@ use PHPMailer\PHPMailer\PHPMailer;
      */
     function connectMail()
     {
+        include_once 'mail.conf.php';
         $mail = new PHPMailer();
         
         $mail->isSMTP();
-        $mail->Port = 465;
+        $mail->Port = PORT;
         $mail->SMTPAuth = 1;
-        $mail->Host ='smtp-piloa.alwaysdata.net';
-        $mail->Hostname = "PaintBallTraker's";
+        $mail->Host = HOST;
+        $mail->Hostname = HOSTNAME;
 
         if($mail->SMTPAuth)
         {
             $mail->SMTPSecure = 'ssl';               //Protocole de sécurisation des échanges avec le SMTP
-            $mail->Username   =  'piloa@alwaysdata.net';  
-            $mail->Password   =  'Vilucas04';
+            $mail->Username   =  USER;  
+            $mail->Password   =  MDP;
         }
 
          $mail->CharSet = 'UTF-8';
@@ -585,6 +586,15 @@ use PHPMailer\PHPMailer\PHPMailer;
 
         adEquipe($idEquipe,$nomEquipe, $nbJoueur);
         adJOEquipe($_SESSION['idJoueur'], $idEquipe);
+    }
+
+    function addImg()
+    {
+        $img = file_get_contents($_FILES['photo']['tmp_name']);
+        $type = $_FILES['photo'] ['type'];
+
+        echo "type: " . $type;
+        echo "contenus img" . $img;
     }
 
 ?>
