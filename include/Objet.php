@@ -342,6 +342,8 @@ class InfoUser
     private $nom;
     private $prenom;
     private $idJoueur;
+    private $avatar;
+    private $mime;
 
     public function __construct($login)
     {
@@ -359,6 +361,8 @@ class InfoUser
         $this->nom = $utilisateur[0]['nom_joueur'];
         $this->prenom = $utilisateur[0]['prenom_joueur'];
         $this->idJoueur = $utilisateur[0]['id_joueur'];
+        $this->avatar =  $utilisateur[0]['avatar'];
+        $this->mime =  $utilisateur[0]['mime'];
 
     }
 
@@ -401,11 +405,22 @@ class InfoUser
     {
         return $this->idJoueur;
     }
+
+    function getMime()
+    {
+        return $this->mime;
+    }
+
+    function getAvatar()
+    {
+        return $this->avatar;
+    }
     
     function afficheId()
     {
         return "id_joueur rentre est " . $this->idJoueur;
     }
+
 }
 
 ?>

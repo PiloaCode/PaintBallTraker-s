@@ -61,16 +61,16 @@ use PHPMailer\PHPMailer\PHPMailer;
         $mail = new PHPMailer();
         
         $mail->isSMTP();
-        $mail->Port = PORT;
+        $mail->Port = PORT_MAIL;
         $mail->SMTPAuth = 1;
-        $mail->Host = HOST;
+        $mail->Host = HOST_MAIL;
         $mail->Hostname = HOSTNAME;
 
         if($mail->SMTPAuth)
         {
             $mail->SMTPSecure = 'ssl';               //Protocole de sécurisation des échanges avec le SMTP
-            $mail->Username   =  USER;  
-            $mail->Password   =  MDP;
+            $mail->Username   =  USER_MAIL;  
+            $mail->Password   =  MDP_MAIL;
         }
 
          $mail->CharSet = 'UTF-8';
@@ -261,7 +261,7 @@ use PHPMailer\PHPMailer\PHPMailer;
             $res = $query->fetch_assoc();
             if(verifDate($id_lien))
             {
-                $request = "UPDATE Utilisateur SET actif=1;";
+                $request = "UPDATE Utilisateur SET actif=1 WHERE id_lien='" .$id_lien . "'";
                 $query = $conn->query($request);
 
                 printf("<p> tout se passe bien </p>");
@@ -340,7 +340,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 
         $conn = openBD();
         
-        $idJoueur = addJoueur($nom, $prenom);
+        $id_joueur = addJoueur($nom, $prenom);
 
         //chaine de caretere representant la requete numero deux
         $request = "INSERT INTO Utilisateur(pseudo,pasword,adresse_mail,date_naissance,id_joueur,actif,id_lien,date_inscription) VALUES (?,?,?,?,?,0,?,NOW())";
@@ -514,6 +514,8 @@ use PHPMailer\PHPMailer\PHPMailer;
                 
                 $_SESSION['login'] = $login;
                 $_SESSION['idJoueur'] = $user->getIdJ();
+                $_SESSION['avatar'] = $user->getAvatar();
+                $_SESSION['mime'] = $user->getMime();
             }
     }
 
@@ -590,11 +592,33 @@ use PHPMailer\PHPMailer\PHPMailer;
 
     function addImg()
     {
-        $img = file_get_contents($_FILES['photo']['tmp_name']);
-        $type = $_FILES['photo'] ['type'];
+        $img = addslashes(file_get_contents($_FILES['avatar']['tmp_name']));
+        $type = $_FILES['avatar'] ['type'];
 
-        echo "type: " . $type;
-        echo "contenus img" . $img;
+        $conn = openBD();
+        $request = "SELECT * FROM Utilisateur WHERE pseudo='" .$_SESSION['login'] ."';";
+        $query = $conn->query($request);
+
+        if($query)
+        {
+            $request = "UPDATE Utilisateur SET avatar='". $img . "' WHERE pseudo='" . $_SESSION['login'] . "';";
+            $request2 = "UPDATE Utilisateur SET mime='". $type . "' WHERE pseudo='" . $_SESSION['login'] . "';";
+            $query = $conn->query($request);
+            $query = $conn->query($request2);
+
+            printf("<p> tout se passe bien </p>");
+        }
     }
 
+    function afficheAvatar()
+    {
+        echo "<img src='data:". $_SESSION['mime'] . ";base64,"  . base64_encode($_SESSION['avatar']) . "' alt='test' />";
+    }
+
+    function updatAvatar()
+    {
+        $user = new InfoUser($_SESSION['login']);
+        $_SESSION['avatar'] = $user->getAvatar();
+        $_SESSION['mime'] = $user->getMime();
+    }
 ?>

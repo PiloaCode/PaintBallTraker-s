@@ -7,10 +7,6 @@
             <strong> Version du 08/10/2021 </strong>
         </p>
     </aside>
-    
-    <?php
-         echo password_hash("Vincent4", PASSWORD_DEFAULT);
-    ?>
 </footer>
 </body>
 </html>

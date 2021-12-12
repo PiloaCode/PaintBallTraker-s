@@ -2,27 +2,25 @@
     include_once 'include/head.inc.php';
     include_once 'include/Objet.php';
 ?>
-    <form methode="get" enctype="multipart/form-data">
-        <input type="file" name="myfile" >
+    <form method="post" enctype="multipart/form-data">
+        <input name="avatar" type="file" accept="image/png, image/jpeg">
         <input type="submit" value="validée" >
     </form>
 <?php
+
 
     if(isset($_SESSION['login']))
     {
         $user = new InfoUser($_SESSION['login']);
         echo $user->test();
-
-        print_r($_FILES);
-
-        $img = file_get_contents($_FILES['myfile']['tmp_name']);
-        $type = $_FILES['myfile']['type'];
-
-        // echo "type: " . $type;
-        // echo "contenus img" . $img;
-
-        // addImg();
+        if(isset($_FILES))
+        {
+            addImg();
+            updatAvatar();
+        }
     }
+
+    afficheAvatar();
 ?>
     
 <?php
