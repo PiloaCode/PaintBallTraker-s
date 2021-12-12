@@ -22,7 +22,7 @@
 ?>
 <!--Code Alexis formulaire de connexion-->
 <h2>Connexion</h2>
-<form method="post" id="" >
+<form method="post" id="form" >
     <div class="form-structor">
         <div class="signup">
             <h2 class="form-title" id="signup"><span>ou</span>S'inscrire</h2>
@@ -42,7 +42,7 @@
                     <input type="text" name="login" required class="input" placeholder="Identifiant" />
                     <input type="password" name="pasword" id="pasword" required class="input" placeholder="Mot de passe" />
                 </div>
-                <input type="submit" class="submit-btn">Se connecter/>
+                <input type="submit" class="submit-btn">Se connecter</input>
             </div>
         </div>
     </div>
@@ -53,7 +53,7 @@
         
         <h2> Inscription </h2>
         
-        <form method="post" id="form">
+        <form method="post" id="">
             <label for="nomJoueur" class="row"> Nom </label>
             <input type="text" name="nom" id="nom" required  minlength="5" class="row"/>
             <label for="prenom" class="row"> Prenom </label>
