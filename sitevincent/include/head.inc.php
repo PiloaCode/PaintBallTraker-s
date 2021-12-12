@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <meta name="google-site-verification" content="YWb7bzsaDrsH40tqihrwV48zaA8J0sPxGhSVBe5s7ss" />
     <?php
         echo"\t<title>$title</title>\n";
         session_start();
