@@ -59,13 +59,31 @@
 
         foreach($res as $line)
         {
-            $equipeAdv = tableEquipeId($line['equipe_adv']);
+            if(isset($line['equipe_adv']))
+            {
+                $equipeAdv = tableEquipeId($line['equipe_adv']);
+            }
             $equipeAllie = tableEquipeId($line['equipe_allie']);
 
             $chaine .= "\n\t\t<tr>";
-            $chaine .= "\n\t\t\t<td>" . $line['terrain'] . "</td>";
+            if(isset($line['terrain']))
+            {
+                $chaine .= "\n\t\t\t<td>" . $line['terrain'] . "</td>";
+            }
+            else
+            {
+                $chaine .="\n\t\t\t<td> </td>";
+            }
+           
             $chaine .= "\n\t\t\t<td> <param name='equipeAdv' value='". $line['equipe_allie'] ."'>"  . $equipeAllie [0] ['nom_equipe'] . "</td>";
-            $chaine .= "\n\t\t\t<td> <param name='equipeAdv' value='". $line['equipe_adv'] ."'>" . $equipeAdv[0] ['nom_equipe'] . "</td>";
+            if(isset($line['equipe_adv']))
+            {
+                $chaine .= "\n\t\t\t<td> <param name='equipeAdv' value='". $line['equipe_adv'] ."'>" . $equipeAdv[0] ['nom_equipe'] . "</td>";
+            }
+            else
+            {
+                $chaine .="\n\t\t\t<td> </td>";
+            }
             $chaine .= "\n\t\t\t<td>" . $line['duree_match'] . "</td>";
             $chaine .= "\n\t\t\t<td>" . $line['nbr_elimin_user'] . "</td>";
             $chaine .= "\n\t\t\t<td>" . $line['nombre_loader'] . "</td>";

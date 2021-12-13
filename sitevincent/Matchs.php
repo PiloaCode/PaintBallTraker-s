@@ -1,8 +1,8 @@
 <?php
     //element a remplire pour le head
-    $title="Matchs";
-    $description="permet de voir les matchs du joueur";
-    $h1 = "Vos Matchs";
+    $title="Analyses";
+    $description="Permet de voir les analyses d'un joueur";
+    $h1 = "Analyses";
 
     include_once 'include/head.inc.php';
     include_once 'include/function.inc.php'
@@ -18,58 +18,72 @@
     <div id="result">
 
     </div>
-
-    <article id='formMatch' hidden>
-                <h2> Ajouter un match </h2>
-
-                <form>
-                    <label> terrain </label>
-                    <input name='terrain' type=''> </input>
-
-                    <label for='duree_match'> durée du match  </label>
-                    <input name='duree_match' type=''> </input>
-
-                    <label for='nbr_elimin'> nombre d'élimination </label>
-                    <input name='nbr_elimin' type=''> </input>
-
-                    <label for='nbr_loader'> nombre de loader </label>
-                    <input name='nbr_loader' type=''> </input>
-
-                    <label for='duree_ingame'> durée en jeux  </label>
-                    <input name='duree_ingame' type=''> </input>
-                    
-                    <select name='choix_match'>
-                        <option value='competition'> competition </option>
-                        <option value='loisir'> loisir </option>
-                    </select>
-                    
-                        <select name='type_gun'>
-                            <option value='mecanique'> mecanique </option>
-                            <option value='electronique'> electronique </option>
+    <form method="post" id="formMatch" hidden>
+        <div class="form-structor" style="height: 650px !important">
+            <div class="signup" style="top: 51% !important">
+                <h2 class="form-title" id="signup" style="margin-bottom: 15% !important">Ajouter un match</h2>
+                <div class="form-holder">
+                    <input type="text" name="terrain" class="input" placeholder="Terrain" />
+                    <input type="number" name="duree_match" class="input" placeholder="Durée du match" />
+                    <input type="number" name="nbr_elimin" class="input" placeholder="Nombre d'élimination" />
+                    <input type="number" name ="nbr_loader" class="input" placeholder="Nombre de loader utilisé" />
+                    <div class="input" style="height: 80px !important; padding-top: 15px !important">
+                        <h3 style="color: #999; font-size: 12px">Type de match</h3>
+                        <select name='choix_match' class="input" style="padding-left: 0; margin-left: -4px">
+                            <option value='competition'> competition </option>
+                            <option value='loisir'> loisir </option>
                         </select>
+                    </div>
+                    <div class="input" style="height: 80px !important; padding-top: 15px !important">
+                        <h3 style="color: #999; font-size: 12px">Type de gun</h3>  
+                        <select name='type_gun' class="input" style="padding-left: 0; margin-left: -4px">
+                                <option value='mecanique'> mécanique </option>
+                                <option value='electronique'> éléctronique </option>
+                        </select>
+                    </div>
                     <?php
-                       echo choixEquipe($_SESSION['login']);
+                        echo"<div class='input' style='height: 80px !important; padding-top: 15px !important'>",
+                                '<h3 style="color: #999; font-size: 12px">Choissisez votre équipe</h3>';
+                            echo choixEquipe($_SESSION['login']);
+                        echo "</div>";
                     ?>
+                </div>
+                <button type="submit" class="submit-btn" style="margin: 47px auto !important">Ajouter</button>
+            </div>
+        </div>
+    </form>
+    <form method="post" id="formEquipe" hidden>
+        <div class="form-structor">
+            <h2 class="form-title" id="signup" style="text-align: center;color: #fff; margin-top: 42%; font-size: 1.7em;">Ajouter une équipe</h2>
+            <div class="signup" style="top: 60% !important">
+                <div class="form-holder">
+                    <input type="text" name="nomEquipe" class="input" placeholder="Nom de l'équipe" />
+                    <input type="number" name="nbJoueur" class="input" placeholder="Nombre de joueur" />
+                </div>
+                <button type="submit" class="submit-btn" style="margin: 50px auto !important">Ajouter</button>
+            </div>
+        </div>
+    </form>
+    <form method="post" id="formMenbre" hidden>
+        <div class="form-structor">
+            <h2 class="form-title" id="signup" style="text-align: center;color: #fff; margin-top: 29%; font-size: 1.7em;">Ajouter une équipe</h2>
+            <div class="signup" style="top: 60% !important">
+                <div class="form-holder">
+                    <input type="text" name="nomJoueur" class="input" placeholder="Nom du joueur" />
+                    <input type="text" name="prenomJoueur" class="input" placeholder="Prénom du joueur" />
+                    <?php
+                        echo"<div class='input' style='height: 80px !important; padding-top: 15px !important'>",
+                                '<h3 style="color: #999; font-size: 12px">Choissisez votre équipe</h3>';
+                            echo choixEquipe($_SESSION['login']);
+                        echo "</div>";
+                    ?>
+                </div>
+                <button type="submit" class="submit-btn" style="margin: 50px auto !important">Ajouter</button>
+            </div>
+        </div>
+    </form>
 
-                    <input type='submit'    />
-                </form>
-    </article>
-
-    <article id='formEquipe' hidden>
-                <h2> Ajouter une equipe </h2>
-
-                <form>
-                    <label for='nomEquipe'> nom de l'equipe </label>
-                    <input name='nomEquipe' type=''> </input>
-
-                    <label for='duree_match'> nombre de joueur  </label>
-                    <input name='nbJoueur' type=''> </input>
-
-                    <input type='submit'    />
-                </form>
-    </article>
-
-    <article id='formMenbre' hidden >
+    <div id='formMenbre' hidden >
                 <h2> Ajouter un membre à une equipe </h2>
 
                 <form>
@@ -86,25 +100,22 @@
 
                     <input type='submit'    />
                 </form>
-    </article>
-
+    </div>
 
 <script src="Ajax.js"> </script>
 
 <?php
-    if(isset($_GET['duree_match']))
-    {
-        adMatch($_GET['$terrain'], $_GET['equipeAllie'], $_GET[''] , $_GET['duree_match'] , $_GET['nbr_elimin'] , $_GET['nbr_loader'] , $_GET['duree_ingame'], $_GET['choix_match'] , $_GET['type_gun']);
-    }
-    if(isset($_GET['nbJoueur']))
-    {
-        echo 'equipe';
-        addEquipe();
-    }
-    if(isset($_GET['nomJoueur']))
-    {
-        echo 'membre';
-        addJInEquipe();
-    }
+if(isset($_GET['duree_match']))
+{
+    adMatch($_GET['terrain'], $_GET['equipe'], $_GET['duree_match'], $_GET['nbr_elimin'], $_GET['nbr_loader'], $_GET['duree_ingame'], $_GET['choix_match'], $_GET['type_gun']);
+}
+if(isset($_GET['nbJoueur']))
+{
+    addEquipe();
+}
+if(isset($_GET['nomJoueur']))
+{
+    addJInEquipe();
+}
     include_once 'include/footeur.inc.php';
 ?>

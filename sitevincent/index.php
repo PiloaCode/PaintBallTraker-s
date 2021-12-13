@@ -158,7 +158,7 @@
         <div class="slide-icon"></div>
       </div>
     </div>
-    <p class="intro"> 
+    <p class="intro" style="margin-top: 10%"> 
     Chaque équipe est composée de 5 joueurs, auxquels s'ajoutent 2 remplaçants maximum, 1 coach, avec des marqueurs semi-automatiques assistés limités à 10 billes par seconde. Le format de jeu est de type « long », il s'agit dans une limite de temps (15 minutes) de jouer le maximum de parties, celles-ci se terminant lorsqu'un joueur a réussi à toucher la base adverse, la première équipe totalisant 5 points d'écart ou celle en tête à la fin du temps gagne.
     </p>
 
@@ -173,7 +173,7 @@
       au fils du temp, et que vous aimez et pratiquer le paintball, nous vous invitons dès lors à utiliser notre 
       site. 
     </p>
-    <p class="intro">
+    <p class="intro"    style="margin-bottom: 10%">
       Notre site internet, possède plusieurs fonctionnalité, la première est la possibilitée pour vous de
       recherche un lieux ou vous pouvez pratiquer le paintball. Vous pouvez par exemple cherchez le lieux le plus
       proche, pour cela il vous suffit de vous rendre sur la page Recherche. Pour se qui est est des
@@ -232,20 +232,6 @@
     </div>
   </div>
 </div>
-<!-----------------CODE ALEXIS--------------------->
-<div>
-  <p style="text-align: center;"> 
-    La paintball est une activité sportive ou de loisir opposant deux équipes dont les joueurs
-    sont équipés de masques de protection et de lanceur (ou marqueurs). Les lanceurs propulsent
-    par air comprimé au CO2 des billes de peinture de calibre 0.68 constituées de capsules médicales
-    renfermant une gélatine colorée, biodégradable.
-    Ces deux équipes  soppose l'une contre l'autre sur différents terrains délimités par des filets 
-    de protection.
-    Le but est de réussir les différentes missions données par l'encadrant. La partie est gagnée lorque
-    l'objectif est atteint ou lorsque les joeurs d'une équipe sont totalement éliminés par l'équipe
-    adverses au moyen de leurs lanceurs.
-  </p>
-</div>
 
 <h2>Votre position</h2>
 <div id="carte"></div>
@@ -254,16 +240,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" src="script.js"></script>
 
-<!--<script>
-L.mapquest.key = 'KEY';
 
-// 'map' refers to a <div> element with the ID map
-L.mapquest.map('map', {
-  center: [37.7749, -122.4194],
-  layers: L.mapquest.tileLayer('map'),
-  zoom: 12
-});
-</script>-->
 <?php
     include_once 'include/footeur.inc.php';
 ?>

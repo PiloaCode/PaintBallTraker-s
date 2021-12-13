@@ -1,4 +1,5 @@
 <?php
+
 include_once 'include/function.inc.php';
 class User
 {
@@ -342,10 +343,12 @@ class InfoUser
     private $nom;
     private $prenom;
     private $idJoueur;
+    private $avatar;
+    private $mime;
 
     public function __construct($login)
     {
-        //recupère les informations de l'utilisateur dans la bd
+        //recupÃ¨re les informations de l'utilisateur dans la bd
         $conn = openBD();
         $request = "SELECT * FROM Utilisateur u, Joueur j WHERE u.pseudo = '" . $login . "' AND j.id_joueur = u.id_joueur;";
         $query = $conn->query($request);
@@ -359,6 +362,8 @@ class InfoUser
         $this->nom = $utilisateur[0]['nom_joueur'];
         $this->prenom = $utilisateur[0]['prenom_joueur'];
         $this->idJoueur = $utilisateur[0]['id_joueur'];
+        $this->avatar =  $utilisateur[0]['avatar'];
+        $this->mime =  $utilisateur[0]['mime'];
 
     }
 
@@ -397,15 +402,79 @@ class InfoUser
     return $chaine;
     }
 
+
+    public function test_bis()
+    {
+        $chaine = "";
+        $chaine.= "<div style='background: #E9EDDE; text-align: center; margin: 20%; border-radius: 15px; height: 700px'>";
+        if(empty($this->avatar)){
+            $chaine.="<div>";
+            $chaine.="<img src='img/profile1.png' alt='profileImg'>";
+            $chaine.="</div>";
+        }
+        else {
+            $chaine.="<div>";
+            $chaine.="<img src='data:". $this->mime. ";base64,"  . base64_encode($this->avatar) . "' alt='image de profile' style='width: 150px; height: 150px; border-radius: 100%; background: white; margin-top: 10%' />";
+            $chaine.="</div>";
+        }  
+        
+        $chaine.= "<div class='name'>";
+        $chaine.=       "<h3 class='title' style='font-family: Poppins , sans-serif;'>".$this->nom. " " .$this->prenom."</h3>";
+        $chaine.=       "<div style='display:flex; justify-content: center; align-items: baseline'>";
+        $chaine.=           "<h3 class='title' style='font-family: Poppins , sans-serif'>Pseudo : </h3>";
+        $chaine.=           "<p style='color: #4D5061; margin-left: 15px; margin-right: 15px; font-family: Poppins , sans-serif;'>".$this->pseudo."</p>";
+        $chaine.=       "</div>";
+        $chaine.=       "<div style='display:flex; justify-content: center; align-items: baseline'>";
+        $chaine.=           "<h3 class='title' style='font-family: Poppins , sans-serif'>Email :</h3>";
+        $chaine.=           "<p style='color: #4D5061; margin-left: 15px; margin-right: 15px; font-family: Poppins , sans-serif;'>".$this->adressMail."</p>";
+        $chaine.=       "</div>";
+        $chaine.=       "<div style='display:flex; justify-content: center; align-items: baseline'>";
+        $chaine.=           "<h3 class='title' style='font-family: Poppins , sans-serif'>Date de naissance : </h3>";
+        $chaine.=           "<p style='color: #4D5061; margin-left: 15px; margin-right: 15px; font-family: Poppins , sans-serif;'>".$this->dateNaissance."</p>";
+        $chaine.=       "</div>";
+        $chaine.= "</div>";
+        $chaine.="<form method='post' enctype='multipart/form-data'>";
+        $chaine.="<input name='avatar' style='color: #3C4858' type='file' accept='image/png, image/jpeg'>";
+        $chaine.="<input type='submit' value='validé' class='submit-btn'>";
+        $chaine.="</form>";
+        $chaine.= "</div>";
+
+    return $chaine;
+    }
+
+
+
+
     function getIdJ()
     {
         return $this->idJoueur;
     }
+
+    function getMime()
+    {
+        return $this->mime;
+    }
+
+    function getAvatar()
+    {
+        return $this->avatar;
+    }
+
+    function getNom()
+    {
+        return $this->nom;
+    }
     
+    function getPrenom()
+    {
+        return $this->prenom;
+    }
+
     function afficheId()
     {
         return "id_joueur rentre est " . $this->idJoueur;
     }
+
 }
 
 ?>

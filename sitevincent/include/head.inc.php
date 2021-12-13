@@ -51,14 +51,6 @@
         </a>
         <span class="tooltip">Accueil</span>
       </li>
-      <!--Page Recherche-->
-      <li>
-        <a href="recherche.php">
-            <i class='bx bx-search' ></i>
-            <input type="text" placeholder="Recherche...">
-        </a>
-        <span class="tooltip">Rercherche</span>
-      </li>
       <!--Page Contact-->
       </li>
       <li>
@@ -80,7 +72,7 @@
           echo "\n\t<span class=\"tooltip\">Connexion</span>";
           echo "\n</li>";
         }
-     ?>
+    ?>
       
       <!--Page Matchs-->
 
@@ -89,79 +81,46 @@
         {
           echo "\n<li>";
           echo  "\n\t<a href=\"Matchs.php\">";
-          echo "\n\t\t<i class='bx bx-pulse' ></i>";
-          echo "\n\t\t<span class=\"links_name\">Matchs</span>";
+          echo "\n\t\t<i class='bx bx-pie-chart-alt-2' ></i>";
+          echo "\n\t\t<span class=\"links_name\">Analyses</span>";
           echo "\n\t</a>";
-          echo "\n\t<span class=\"tooltip\">Matchs</span>";
+          echo "\n\t<span class=\"tooltip\">Analyses</span>";
           echo "\n</li>";
+        
+     
+      echo"<li>",
+        "<a href='parametres.php'>",
+          "<i class='bx bx-cog' ></i>",
+          "<span class='links_name'>Paramètres</span>",
+        "</a>",
+        "<span class='tooltip'>Paramètres</span>",
+      "</li>";
+    }
+      ?>
+      <?php
+      if(isset($_SESSION['login'])){
+        echo"<li class='profile'>",
+            "<div class='profile-details'>";
+              
+              if(empty($_SESSION["avatar"])){
+                echo"<img src='img/profile1.png' alt='profileImg'>";
+              }
+              else {
+                echo "<img src='data:". $_SESSION['mime'] . ";base64,"  . base64_encode($_SESSION['avatar']) . "' alt='image de profile' />";
+              }  
+            
+              echo"<div class='name_job'>",
+                "<div class='name'>".$_SESSION["nom"]."</div>",
+               "<div class='job'>".$_SESSION["prenom"]."</div>",
+              "</div>",
+            "</div>",
+            "<a href='Deconnexion.php'>",
+              "<i class='bx bx-log-out' id='log_out' ></i>",
+            "</a>",
+        "</li>";
         }
-     ?>
-     <!--  bx-pulse  bx-trophy-->
-
-      <!--Page Deconexion-->
-     <?php
-        if(isset($_SESSION['login']))
-        {
-          echo "\n<li>";
-          echo  "\n\t<a href=\"Deconnexion.php\">";
-          echo "\n\t\t<i class='bx bx-lock' ></i>";
-          echo "\n\t\t<span class=\"links_name\">Déconnexion</span>";
-          echo "\n\t</a>";
-          echo "\n\t<span class=\"tooltip\">Déconnexion</span>";
-          echo "\n</li>";
-        }
-     ?>
-
-    <?php
-        if(!isset($_SESSION['login']))
-        {
-          echo "\n<li>";
-          echo  "\n\t<a href=\"Inscription.php\">";
-          echo "\n\t\t<i class='bx bx-fingerprint' ></i>";
-          echo "\n\t\t<span class=\"links_name\">Inscription</span>";
-          echo "\n\t</a>";
-          echo "\n\t<span class=\"tooltip\">Inscription</span>";
-          echo "\n</li>";
-        }
-     ?>
-      <!--
-      <li>
-        <a href="tableau_de_bord.php">
-          <i class='bx bx-grid-alt'></i>
-          <span class="links_name">Tableau de bord</span>
-        </a>
-        <span class="tooltip">Tableau de bord</span>
-      </li>
-       
-      <li>   
-      <a href="analyses.php">
-        <i class='bx bx-pie-chart-alt-2' ></i>
-        <span class="links_name">Analyses</span>
-      </a>
-      <span class="tooltip">Analyses</span>
-      </li>
-
-      <li>   
-        <a href="parametres.php">
-          <i class='bx bx-cog' ></i>
-          <span class="links_name">Paramètres</span>
-        </a>
-        <span class="tooltip">Paramètres</span>
-      </li>
-
-      <li class="profile">
-          <div class="profile-details">
-            <img src="img/profile1.png" alt="profileImg">
-            <div class="name_job">
-              <div class="name">Nom</div>
-              <div class="job">Prénom</div>
-            </div>
-          </div>
-          <i class='bx bx-log-out' id="log_out" ></i>
-      </li>
-    -->
+      ?>
     </ul>
-
   </div>
   <!--Script qui permet d'ajouter une classe active à la page courante-->
   <script type="text/javascript">
