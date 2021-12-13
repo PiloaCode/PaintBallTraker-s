@@ -18,15 +18,16 @@
     <div id="result">
 
     </div>
-    <form method="post" id="formMatch" hidden>
-        <div class="form-structor" style="height: 650px !important">
+    <form method="get" id="formMatch" hidden>
+        <div class="form-structor" style="height: 710px !important">
             <div class="signup" style="top: 51% !important">
                 <h2 class="form-title" id="signup" style="margin-bottom: 15% !important">Ajouter un match</h2>
                 <div class="form-holder">
                     <input type="text" name="terrain" class="input" placeholder="Terrain" />
-                    <input type="number" name="duree_match" class="input" placeholder="Durée du match" />
-                    <input type="number" name="nbr_elimin" class="input" placeholder="Nombre d'élimination" />
-                    <input type="number" name ="nbr_loader" class="input" placeholder="Nombre de loader utilisé" />
+                    <input type="text" name="duree_match" class="input" placeholder="Durée du match" />
+                    <input type="text" name="duree_ingame" class="input" placeholder="Temps rester dans le match" />
+                    <input type="text" name="nbr_elimin" class="input" placeholder="Nombre d'élimination" />
+                    <input type="text" name ="nbr_loader" class="input" placeholder="Nombre de loader utilisé" />
                     <div class="input" style="height: 80px !important; padding-top: 15px !important">
                         <h3 style="color: #999; font-size: 12px">Type de match</h3>
                         <select name='choix_match' class="input" style="padding-left: 0; margin-left: -4px">
@@ -52,7 +53,7 @@
             </div>
         </div>
     </form>
-    <form method="post" id="formEquipe" hidden>
+    <form method="get" id="formEquipe" hidden>
         <div class="form-structor">
             <h2 class="form-title" id="signup" style="text-align: center;color: #fff; margin-top: 42%; font-size: 1.7em;">Ajouter une équipe</h2>
             <div class="signup" style="top: 60% !important">
@@ -64,7 +65,7 @@
             </div>
         </div>
     </form>
-    <form method="post" id="formMenbre" hidden>
+    <form method="get" id="formMenbre" hidden>
         <div class="form-structor">
             <h2 class="form-title" id="signup" style="text-align: center;color: #fff; margin-top: 29%; font-size: 1.7em;">Ajouter une équipe</h2>
             <div class="signup" style="top: 60% !important">
@@ -82,26 +83,6 @@
             </div>
         </div>
     </form>
-
-    <div id='formMenbre' hidden >
-                <h2> Ajouter un membre à une equipe </h2>
-
-                <form>
-                    <label for='nomEquipe'> nom de l'equipe </label>
-                    <?php
-                        echo choixEquipe($_SESSION['login']);
-                    ?>
-
-                    <label for='nomJoueur'> nom  </label>
-                    <input name='nomJoueur' type=''> </input>
-
-                    <label for='prenomJoueur'> prenom  </label>
-                    <input name='prenomJoueur' type=''> </input>
-
-                    <input type='submit'    />
-                </form>
-    </div>
-
 <script src="Ajax.js"> </script>
 
 <?php
