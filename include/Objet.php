@@ -415,7 +415,17 @@ class InfoUser
     {
         return $this->avatar;
     }
+
+    function getNom()
+    {
+        return $this->nom;
+    }
     
+    function getPrenom()
+    {
+        return $this->prenom;
+    }
+
     function afficheId()
     {
         return "id_joueur rentre est " . $this->idJoueur;

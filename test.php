@@ -19,8 +19,6 @@
             updatAvatar();
         }
     }
-
-    afficheAvatar();
 ?>
     
 <?php

@@ -24,19 +24,19 @@
 
                 <form>
                     <label> terrain </label>
-                    <input name='terrain' type=''> </input>
+                    <input name='terrain' type='text'> </input>
 
                     <label for='duree_match'> durée du match  </label>
-                    <input name='duree_match' type=''> </input>
+                    <input name='duree_match' type='text'> </input>
 
                     <label for='nbr_elimin'> nombre d'élimination </label>
-                    <input name='nbr_elimin' type=''> </input>
+                    <input name='nbr_elimin' type='text'> </input>
 
                     <label for='nbr_loader'> nombre de loader </label>
-                    <input name='nbr_loader' type=''> </input>
+                    <input name='nbr_loader' type='text'> </input>
 
                     <label for='duree_ingame'> durée en jeux  </label>
-                    <input name='duree_ingame' type=''> </input>
+                    <input name='duree_ingame' type='text'> </input>
                     
                     <select name='choix_match'>
                         <option value='competition'> competition </option>
@@ -94,16 +94,14 @@
 <?php
     if(isset($_GET['duree_match']))
     {
-        adMatch($_GET['$terrain'], $_GET['equipeAllie'], $_GET[''] , $_GET['duree_match'] , $_GET['nbr_elimin'] , $_GET['nbr_loader'] , $_GET['duree_ingame'], $_GET['choix_match'] , $_GET['type_gun']);
+        adMatch($_GET['terrain'], $_GET['equipe'], $_GET['duree_match'], $_GET['nbr_elimin'], $_GET['nbr_loader'], $_GET['duree_ingame'], $_GET['choix_match'], $_GET['type_gun']);
     }
     if(isset($_GET['nbJoueur']))
     {
-        echo 'equipe';
         addEquipe();
     }
     if(isset($_GET['nomJoueur']))
     {
-        echo 'membre';
         addJInEquipe();
     }
     include_once 'include/footeur.inc.php';

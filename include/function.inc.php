@@ -144,17 +144,45 @@ use PHPMailer\PHPMailer\PHPMailer;
         $conn->close();
     }
 
-    function adMatch($terrain, $equipeAllie, $equipeAdv, $dureeMatch, $nbrEliminUser, $nombreLoader, $Duree_ingame, $choixMatch, $typeGun)
+    function idMatch()
     {
-        $idMatch = "";
         $conn = openBD();
-        $request = "INSERT INTO Matchs (id_joueur,terrain,equipe_allie,equipe_adv,duree_match,nbr_elimin_user,nombre_loader,duree_ingame,choix_match,type_gun) VALUE (,?,?,?,?,?,?,?,?,?,?)";
+        do
+        {
+            
+            $id = mt_rand(10000000, 99999999);
+            $query = $conn->query("SELECT * FROM Matchs WHERE id_match='" . $id ."';");
+        }while($query->num_rows != 0);
+    
+    return $id;
+    }
+
+    function adMatch($terrain, $equipeAllie, $dureeMatch, $nbrEliminUser, $nombreLoader, $Duree_ingame, $choixMatch, $typeGun)
+    {
+        $idMatch = idMatch();
+        echo $terrain. $equipeAllie. $dureeMatch. $nbrEliminUser. $nombreLoader. $Duree_ingame. $choixMatch. $typeGun;
+        echo $idMatch;
+        $conn = openBD();
+        $request = "INSERT INTO Matchs (id_match, terrain, equipe_allie, duree_match, nbr_elimin_user, nombre_loader, duree_ingame, choix_match, type_gun) VALUES (?,?,?,?,?,?,?,?,?)";
+        //$request2 = "INSERT INTO Matchs (id_match, terrain, equipe_allie, duree_match, nbr_elimin_user, nombre_loader, duree_ingame, choix_match, type_gun) VALUES ($idJoueur,$terrain,$equipeAllie,?,?,?,?,?,?)";
+        //INSERT INTO Matchs (id_match, terrain, equipe_allie, duree_match, nbr_elimin_user, nombre_loader, duree_ingame, choix_match, type_gun) VALUES ('84775930','test','10000000', 5.5, 4, 4, 4.4, 'loisir', 'mecanique')
         $query = $conn->prepare($request);
 
         if($query)
         {
-            $query->bind_param('ssss', $$idJoueur, $$idEquipe);
-            $query->execute();
+            $query->bind_param('sssssssss', $idMatch, $terrain, $equipeAllie, $dureeMatch, $nbrEliminUser, $nombreLoader, $Duree_ingame, $choixMatch, $typeGun);
+            if($query->execute())
+            {
+                echo "reusi";
+            }
+            else
+            {
+                echo "erreur insert erreur: " . $query->errno;
+            }
+        }
+        else
+        {
+            echo "erreur";
         }
 
         $conn->close();
@@ -516,6 +544,8 @@ use PHPMailer\PHPMailer\PHPMailer;
                 $_SESSION['idJoueur'] = $user->getIdJ();
                 $_SESSION['avatar'] = $user->getAvatar();
                 $_SESSION['mime'] = $user->getMime();
+                $_SESSION['nom'] = $user->getNom();
+                $_SESSION['prenom'] = $user->getPrenom();
             }
     }
 
@@ -565,6 +595,7 @@ use PHPMailer\PHPMailer\PHPMailer;
             $id = mt_rand(10000000, 99999999);
             $query = $conn->query("SELECT * FROM Equipe WHERE id_equipe='" . $id ."';");
         }while($query->num_rows != 0);
+        $conn->close();
     
     return $id;
     }
